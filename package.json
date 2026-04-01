@@ -1,6 +1,6 @@
 {
   "name": "@uncinq/css-base",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Framework-agnostic CSS foundation — reset, native element styles, and layout primitives.",
   "license": "MIT",
   "repository": {
@@ -12,8 +12,16 @@
     "name": "Un Cinq",
     "url": "https://uncinq.dev/"
   },
-  "keywords": ["css", "reset", "base", "layouts", "design-system"],
-  "files": ["css/"],
+  "keywords": [
+    "css",
+    "reset",
+    "base",
+    "layouts",
+    "design-system"
+  ],
+  "files": [
+    "css/"
+  ],
   "exports": {
     ".": "./css/index.css",
     "./css/index.css": "./css/index.css",
