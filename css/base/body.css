@@ -1,0 +1,11 @@
+/* css/base/body.css */
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-text, 1rem);
+    font-weight: var(--font-weight-text, 400);
+    line-height: var(--line-height-text, 1.5);
+  }
+}

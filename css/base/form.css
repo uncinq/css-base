@@ -1,0 +1,277 @@
+/* css/base/form.css */
+@layer base {
+
+  label,
+  legend {
+    color: var(--label-color-text);
+    font-size: var(--label-font-size);
+    font-weight: var(--label-font-weight);
+    padding: var(--label-padding);
+    text-transform: var(--label-text-transform);
+  }
+
+  .help {
+    color: var(--help-color-text);
+    font-size: var(--help-font-size);
+    font-weight: var(--help-font-weight);
+    margin: var(--help-margin);
+  }
+
+  /* ── Input ─────────────────────────────────────────────────────────── */
+
+  input:not(
+    [type='button'],
+    [type='reset'],
+    [type='submit'],
+    [type='checkbox'],
+    [type='radio'],
+    [type='range']
+  ) {
+    border: 0;
+    background-color: var(--input-color-background);
+    border-radius: var(--input-border-radius);
+    box-shadow: inset 0 0 0 var(--input-border-width) var(--input-color-border);
+    color: var(--input-color);
+    display: block;
+    font: inherit;
+    line-height: var(--line-height-normal);
+    padding: var(--input-padding);
+    outline-offset: 2px;
+    transition: var(--transition-normal);
+    width: 100%;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: inset 0 0 0 var(--input-border-width) var(--input-color-border-hover);
+    }
+
+    &::placeholder {
+      color: var(--input-placeholder-color);
+      opacity: 100%;
+    }
+  }
+
+  :where(input[type='search']) {
+    appearance: textfield;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      appearance: none;
+    }
+  }
+
+  :where(input[type='number']) {
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  :where(input[type='date'], input[type='time'], input[type='datetime-local']) {
+    cursor: pointer;
+
+    &::-webkit-calendar-picker-indicator {
+      transition: opacity var(--transition-normal);
+      opacity: 60%;
+      cursor: pointer;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 100%;
+      }
+    }
+  }
+
+  :where(input[type='file']) {
+    padding: var(--spacing-8, 0.5rem) var(--spacing-12, 0.75rem);
+    cursor: pointer;
+
+    &::file-selector-button {
+      border: 0;
+      border-radius: var(--input-border-radius);
+      background-color: var(--form-accent-color);
+      color: var(--color-on-primary, #ffffff);
+      font: inherit;
+      cursor: pointer;
+      margin-right: var(--spacing-12, 0.75rem);
+      padding: var(--spacing-8, 0.5rem) var(--spacing-12, 0.75rem);
+      transition: var(--transition-normal);
+    }
+  }
+
+  /* ── Select ────────────────────────────────────────────────────────── */
+
+  select {
+    appearance: none;
+    background-color: var(--select-background-color);
+    background-image: var(--chevron-lightmode);
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-16, 1rem) center;
+    background-size: 1rem;
+    border: 0;
+    border-radius: var(--select-border-radius);
+    box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border);
+    color: var(--select-color);
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    line-height: 1.5;
+    padding: 0.75rem 1rem;
+    padding-right: 2rem;
+    transition: var(--transition-normal);
+    user-select: none;
+    width: 100%;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border-hover);
+    }
+
+    [data-theme='dark'] & {
+      background-image: var(--chevron-darkmode);
+    }
+
+    &[multiple] {
+      padding-right: var(--spacing-16, 1rem);
+      background-image: none;
+      cursor: default;
+    }
+  }
+
+  :where(optgroup) {
+    color: var(--select-optgroup-color);
+    font-weight: var(--font-weight-bold, 700);
+  }
+
+  /* ── Textarea ──────────────────────────────────────────────────────── */
+
+  textarea {
+    display: block;
+    width: 100%;
+    min-height: 5lh;
+    padding: var(--form-spacing, 12px 16px);
+    border: 0;
+    border-radius: var(--textarea-border-radius);
+    background-color: var(--textarea-color-background);
+    box-shadow: inset 0 0 0 var(--textarea-border-width) var(--textarea-color-border);
+    color: var(--textarea-color);
+    font: inherit;
+    line-height: 1.5;
+    resize: vertical;
+    field-sizing: content;
+    transition: var(--transition-normal);
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: inset 0 0 0 var(--textarea-border-width) var(--textarea-border-color-hover);
+    }
+
+    &::placeholder {
+      color: var(--textarea-placeholder-color);
+      opacity: 100%;
+    }
+  }
+
+  /* ── Checkbox ──────────────────────────────────────────────────────── */
+
+  [type='checkbox']:not([role='switch']) {
+    display: inline-grid;
+    position: relative;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: var(--checkable-size, 1.25rem);
+    height: var(--checkable-size, 1.25rem);
+    margin: 0;
+    border: 0;
+    border-radius: var(--checkbox-border-radius);
+    background-color: var(--checkbox-background-color);
+    box-shadow: inset 0 0 0 var(--checkbox-border-width) var(--checkbox-border-color);
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    transition: var(--transition-normal);
+
+    &:is(:checked, :indeterminate) {
+      background-color: var(--checkbox-checked-background-color, #ffffff);
+      box-shadow: inset 0 0 0 var(--checkbox-border-width) var(--checkbox-border-color);
+    }
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: inset 0 0 0 var(--checkbox-border-width) var(--checkbox-border-color-hover);
+    }
+
+    &:checked::after {
+      background-color: var(--form-accent-color, #ffffff);
+      content: '';
+      height: 100%;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>') center no-repeat;
+      position: absolute;
+      transform: scale(.7);
+      width: 100%;
+    }
+
+    &:indeterminate::after {
+      background-color: currentcolor;
+      content: '';
+      height: 100%;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M431 256c0 17.7-14.3 32-32 32H49c-17.7 0-32-14.3-32-32s14.3-32 32-32h350c17.7 0 32 14.3 32 32z"/></svg>') center no-repeat;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  [type='checkbox'] + label {
+    --label-spacing: .15rem 0 0 .3125rem;
+  }
+
+  /* ── Radio ─────────────────────────────────────────────────────────── */
+
+  [type='radio'] {
+    display: inline-grid;
+    width: var(--checkable-size, 1.25em);
+    height: var(--checkable-size, 1.25em);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radio-border-radius);
+    background-color: var(--radio-background-color);
+    box-shadow: inset 0 0 0 var(--radio-border-width) var(--radio-border-color);
+    cursor: pointer;
+    appearance: none;
+    place-content: center;
+    transition: var(--transition-normal);
+
+    &::before {
+      content: '';
+      width: calc(var(--checkable-size, 1.25em) / 1);
+      height: calc(var(--checkable-size, 1.25em) / 1);
+      border: 2px solid var(--radio-checked-border-color);
+      border-radius: var(--radius-full, 9999px);
+      background-color: var(--radio-checked-color);
+      scale: 0;
+      transition: scale var(--transition-normal);
+    }
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: inset 0 0 0 var(--radio-border-width) var(--radio-border-color-hover);
+    }
+
+    &:checked::before {
+      scale: 0.5;
+    }
+  }
+
+  [type='radio'] + label {
+    --label-spacing: .15rem 0 0 .3125rem;
+  }
+}

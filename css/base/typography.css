@@ -1,0 +1,7 @@
+/* css/base/typography.css */
+@layer base {
+  p {
+    margin-block: var(--spacing-typography);
+    max-width: var(--max-width-paragraph);
+  }
+}

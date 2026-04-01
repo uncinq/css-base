@@ -1,0 +1,32 @@
+/* css/base/code.css */
+@layer base {
+  :where(code, kbd, samp) {
+    font-family: var(--font-family-code);
+    font-size: var(--font-size-xs);
+  }
+
+  :where(code):not(pre > code) {
+    background-color: var(--color-bg-muted);
+    border-radius: var(--radius-sm);
+    padding: 0.1em 0.35em;
+  }
+
+  pre {
+    background-color: var(--color-bg-muted);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    padding: var(--spacing-sm);
+  }
+
+  pre > code {
+    font-size: var(--font-size-xs);
+    background: none;
+    padding: 0;
+  }
+
+  kbd {
+    border: var(--border-width-normal) var(--border-style-solid) var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.1em 0.35em;
+  }
+}

@@ -1,0 +1,19 @@
+/* @uncinq/css-base — base.css */
+/*
+ * Imports all native element styles in @layer base.
+ */
+@import 'base/body.css';
+@import 'base/headings.css';
+@import 'base/typography.css';
+@import 'base/link.css';
+@import 'base/blockquote.css';
+@import 'base/code.css';
+@import 'base/list.css';
+@import 'base/address.css';
+@import 'base/details.css';
+@import 'base/figure.css';
+@import 'base/form.css';
+@import 'base/picture.css';
+@import 'base/table.css';
+@import 'base/time.css';
+@import 'base/video.css';

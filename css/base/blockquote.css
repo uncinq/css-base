@@ -1,0 +1,16 @@
+/* css/base/blockquote.css */
+@layer base {
+  blockquote {
+    border-inline-start: var(--border-width-xl) var(--border-style-solid) var(--color-border);
+    font-style: italic;
+    margin-block: var(--spacing-typography);
+    padding-inline-start: var(--spacing-sm);
+  }
+
+  blockquote cite {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-style: normal;
+    margin-block-start: var(--spacing-typography);
+  }
+}

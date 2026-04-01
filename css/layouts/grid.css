@@ -1,0 +1,22 @@
+/* css/layouts/grid.css */
+@layer layouts {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: var(--gap);
+
+    /*
+     * Each child inherits --grid-column, which updates at every breakpoint.
+     * Override --grid-column-tablet / --grid-column-tablet-wide / etc. on a
+     * specific child to give it a different column span than its siblings.
+     */
+    & > * {
+      grid-column: var(--grid-column);
+    }
+
+    @media (min-width: 48rem) { --grid-column: var(--grid-column-tablet); }
+    @media (min-width: 64rem) { --grid-column: var(--grid-column-tablet-wide); }
+    @media (min-width: 75rem) { --grid-column: var(--grid-column-laptop); }
+    @media (min-width: 90rem) { --grid-column: var(--grid-column-desktop); }
+  }
+}

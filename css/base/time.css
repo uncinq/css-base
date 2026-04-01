@@ -1,0 +1,6 @@
+/* css/base/time.css */
+@layer base {
+  time {
+    font-size: var(--font-size-xs);
+  }
+}
