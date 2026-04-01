@@ -2,6 +2,7 @@
 /*
  * Imports all native element styles in @layer base.
  */
+@import 'base/abbr.css';
 @import 'base/body.css';
 @import 'base/headings.css';
 @import 'base/typography.css';
@@ -14,6 +15,7 @@
 @import 'base/figure.css';
 @import 'base/form.css';
 @import 'base/picture.css';
+@import 'base/sup.css';
 @import 'base/table.css';
 @import 'base/time.css';
 @import 'base/video.css';
