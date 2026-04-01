@@ -2,6 +2,8 @@
 
 > Framework-agnostic CSS foundation — reset, native element styles, and layout primitives.
 
+<img width="1280" height="640" alt="share-css-base" src="https://github.com/user-attachments/assets/3e57aa00-5349-4a2a-bdd5-3369b1ec21c2" />
+
 ## What's included
 
 ### Reset
