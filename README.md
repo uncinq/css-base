@@ -152,7 +152,7 @@ css/
 
 ## Peer dependencies
 
-This package requires `@uncinq/design-tokens` and `@uncinq/component-tokens` to resolve the CSS custom properties it references. It does not bundle any token values itself.
+This package requires [`@uncinq/design-tokens`](https://github.com/uncinq/design-tokens) and [`@uncinq/component-tokens`](https://github.com/uncinq/component-tokens) to resolve the CSS custom properties it references. It does not bundle any token values itself.
 
 Token categories referenced across base and layout files include:
 
@@ -171,6 +171,9 @@ Install both peer dependencies:
 npm install @uncinq/design-tokens @uncinq/component-tokens
 ```
 
+→ [`@uncinq/design-tokens`](https://github.com/uncinq/design-tokens) — primitive and semantic design tokens (color, typography, spacing, …)
+→ [`@uncinq/component-tokens`](https://github.com/uncinq/component-tokens) — component-scoped tokens (form, table, figure, …)
+
 Then import them before this package so the tokens resolve correctly:
 
 ```css
@@ -183,5 +186,7 @@ Then import them before this package so the tokens resolve correctly:
 
 ## References
 
+- [`@uncinq/design-tokens`](https://github.com/uncinq/design-tokens) — primitive and semantic design tokens
+- [`@uncinq/component-tokens`](https://github.com/uncinq/component-tokens) — component-scoped tokens
 - [Josh W Comeau custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/) — the reset foundation used in `css/reset.css`
 - [MDN: CSS cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
