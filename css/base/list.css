@@ -9,7 +9,7 @@
   }
 
   :where(li) {
-    margin-block: var(--spacing-typography);
+    margin-block: var(--spacing-2xs);
   }
 
   :where(ul ul, ul ol, ol ul, ol ol) {
