@@ -13,7 +13,7 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        --link-color-text-decoration: var(--link-color-text-decoration-hover);
+        text-decoration-color: var(--link-color-text-decoration-hover);
       }
     }
   }
