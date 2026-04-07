@@ -2,6 +2,7 @@
 /*
  * Imports all native element styles in @layer base.
  */
+@import 'base/accessibility.css';
 @import 'base/abbr.css';
 @import 'base/body.css';
 @import 'base/headings.css';

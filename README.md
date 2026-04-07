@@ -25,6 +25,7 @@ Styles for native HTML elements, each driven by design tokens from `@uncinq/desi
 
 | File | Element(s) |
 | --- | --- |
+| `base/accessibility.css` | `.visually-hidden`, `.visually-hidden-focusable` — a11y visibility helpers |
 | `base/body.css` | `body` — background, text color, font family/size/weight/line-height |
 | `base/headings.css` | `h1`–`h6` — color, font, size scale via `--font-size-heading-01…06` |
 | `base/typography.css` | `p` — spacing, max-width |
@@ -127,6 +128,7 @@ css/
   base.css                    ← barrel, imports all base/*
   layouts.css                 ← barrel, imports all layouts/*
   base/
+    accessibility.css         ← .visually-hidden, .visually-hidden-focusable
     blockquote.css            ← blockquote + cite — border-left, italic, muted color
     code.css                  ← code, pre, kbd, samp — monospace, background, padding
     list.css                  ← ul, ol, li — content list indent and spacing

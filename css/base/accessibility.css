@@ -1,0 +1,27 @@
+/* base/accessibility.css */
+/*
+ * .visually-hidden — hides content visually while keeping it accessible
+ * to screen readers and other assistive technologies.
+ *
+ * Use for:
+ *   - Icon-only buttons/links: <button><svg aria-hidden="true">…</svg><span class="visually-hidden">Close</span></button>
+ *   - Form labels that must stay in the DOM for AT
+ *   - Content intended only for screen readers
+ *
+ * .visually-hidden-focusable — same as above, but reveals on :focus / :focus-within.
+ * Use for skip links that should be visible when reached by keyboard.
+ *
+ * Do NOT use to hide decorative content — use aria-hidden="true" instead.
+ */
+@layer base {
+  .visually-hidden,
+  .visually-hidden-focusable:not(:focus):not(:focus-within) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
