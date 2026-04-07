@@ -24,16 +24,33 @@
   }
 
   summary {
+    align-items: center;
     cursor: pointer;
+    display: flex;
     font-family: var(--details-summary-font-family);
     font-size: var(--details-summary-font-size);
     font-weight: var(--details-summary-font-weight);
+    justify-content: space-between;
     list-style: none;
     padding: var(--details-padding);
 
     &::-webkit-details-marker {
       display: none;
     }
+
+    &::after {
+      background-color: currentColor;
+      content: '';
+      flex-shrink: 0;
+      height: var(--details-icon-size);
+      mask: var(--details-icon) center / var(--details-icon-size) no-repeat;
+      transition: rotate var(--transition-normal);
+      width: var(--details-icon-size);
+    }
+  }
+
+  details[open] summary::after {
+    rotate: 180deg;
   }
 
   summary + div {

@@ -109,10 +109,10 @@
   select {
     appearance: none;
     background-color: var(--select-color-bg);
-    background-image: var(--chevron-lightmode);
+    background-image: var(--select-icon);
     background-repeat: no-repeat;
-    background-position: right var(--spacing-16, 1rem) center;
-    background-size: 1rem;
+    background-position: right var(--select-icon-size) center;
+    background-size: var(--select-icon-size);
     border: 0;
     border-radius: var(--select-border-radius);
     box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border);
@@ -132,12 +132,8 @@
       box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border-hover);
     }
 
-    [data-theme='dark'] & {
-      background-image: var(--chevron-darkmode);
-    }
-
     &[multiple] {
-      padding-right: var(--spacing-16, 1rem);
+      padding-right: var(--size-16, 1rem);
       background-image: none;
       cursor: default;
     }
@@ -255,7 +251,7 @@
       width: calc(var(--checkable-size, 1.25em) / 1);
       height: calc(var(--checkable-size, 1.25em) / 1);
       border: 2px solid var(--radio-color-border-checked);
-      border-radius: var(--radius-full, 9999px);
+      border-radius: var(--radius-pill, 9999px);
       background-color: var(--radio-color-bg-checked);
       scale: 0;
       transition: scale var(--transition-normal);
