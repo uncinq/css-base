@@ -1,6 +1,6 @@
 {
   "name": "@uncinq/css-base",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Framework-agnostic CSS foundation — reset, native element styles, and layout primitives.",
   "license": "MIT",
   "repository": {
