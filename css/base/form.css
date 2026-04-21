@@ -32,7 +32,7 @@
     border: 0;
     border-radius: var(--input-border-radius);
     box-shadow: inset 0 0 0 var(--input-border-width) var(--input-color-border);
-    color: var(--input-color);
+    color: var(--input-color-text);
     display: block;
     font: inherit;
     line-height: var(--line-height-normal);
@@ -47,7 +47,7 @@
     }
 
     &::placeholder {
-      color: var(--input-placeholder-color);
+      color: var(--input-color-placeholder);
       opacity: 100%;
     }
   }
@@ -117,7 +117,7 @@
     border: 0;
     border-radius: var(--select-border-radius);
     box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border);
-    color: var(--select-color);
+    color: var(--select-color-text);
     cursor: pointer;
     display: block;
     font: inherit;
@@ -141,7 +141,7 @@
   }
 
   :where(optgroup) {
-    color: var(--select-optgroup-color);
+    color: var(--select-color-optgroup);
     font-weight: var(--font-weight-bold, 700);
   }
 
@@ -152,7 +152,7 @@
     border: 0;
     border-radius: var(--textarea-border-radius);
     box-shadow: inset 0 0 0 var(--textarea-border-width) var(--textarea-color-border);
-    color: var(--textarea-color);
+    color: var(--textarea-color-text);
     display: block;
     field-sizing: content;
     font: inherit;
@@ -169,7 +169,7 @@
     }
 
     &::placeholder {
-      color: var(--textarea-placeholder-color);
+      color: var(--textarea-color-placeholder);
       opacity: 100%;
     }
   }
