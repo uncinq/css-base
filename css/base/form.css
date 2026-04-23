@@ -36,7 +36,7 @@
     display: block;
     font: inherit;
     line-height: var(--line-height-normal);
-    outline-offset: 2px;
+    outline-offset: var(--focus-outline-offset, 2px);
     padding: var(--input-padding);
     transition: var(--form-transition);
     width: 100%;
@@ -99,8 +99,8 @@
       color: var(--color-on-primary, #ffffff);
       cursor: pointer;
       font: inherit;
-      margin-right: var(--spacing-12, 0.75rem);
-      padding: var(--spacing-8, 0.5rem) var(--spacing-12, 0.75rem);
+      margin-inline-end: var(--file-button-margin-end, 0.75rem);
+      padding: var(--file-button-padding, 0.5rem 0.75rem);
       transition: var(--form-transition);
     }
   }
@@ -121,7 +121,7 @@
     cursor: pointer;
     display: block;
     font: inherit;
-    line-height: 1.5;
+    line-height: var(--line-height-normal, 1.5);
     padding: var(--select-padding);
     padding-inline-end: var(--select-padding-end);
     transition: var(--form-transition);
@@ -156,9 +156,9 @@
     display: block;
     field-sizing: content;
     font: inherit;
-    line-height: 1.5;
+    line-height: var(--line-height-normal, 1.5);
     min-height: var(--textarea-min-height, 5lh);
-    padding: var(--textarea-padding, 12px 16px);
+    padding: var(--textarea-padding, 0.75rem 1rem);
     resize: vertical;
     transition: var(--form-transition);
     width: 100%;
@@ -212,7 +212,7 @@
       height: 100%;
       mask: var(--checkbox-mask-checked);
       position: absolute;
-      transform: scale(.7);
+      scale: var(--checkbox-scale-checked, 0.7);
       width: 100%;
     }
 
@@ -227,7 +227,7 @@
   }
 
   [type='checkbox'] + label {
-    --label-padding: 0 0 0 .3125rem;
+    --label-padding: var(--checkbox-label-padding);
   }
 
   /* ── Radio ─────────────────────────────────────────────────────────── */
@@ -249,7 +249,7 @@
 
     &::before {
       background-color: var(--radio-color-bg-checked);
-      border: 2px solid var(--radio-color-border-checked);
+      border: var(--radio-border-width-checked) solid var(--radio-color-border-checked);
       border-radius: var(--radius-pill, 9999px);
       content: '';
       height: calc(var(--checkable-size, 1.25em) / 1);
@@ -264,12 +264,12 @@
     }
 
     &:checked::before {
-      scale: 0.5;
+      scale: var(--radio-scale-checked, 0.7);
     }
   }
 
   [type='radio'] + label {
-    --label-padding: 0 0 0 .3125rem;
+    --label-padding: var(--radio-label-padding);
     cursor: pointer;
   }
 }
