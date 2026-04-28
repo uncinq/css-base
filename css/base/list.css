@@ -5,7 +5,7 @@
  */
 @layer base {
   :where(ul, ol) {
-    padding-inline-start: var(--spacing-xs);
+    padding-inline-start: var(--size-16);
   }
 
   :where(ul, ol) :where(ul, ol) {
