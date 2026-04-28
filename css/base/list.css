@@ -5,14 +5,15 @@
  */
 @layer base {
   :where(ul, ol) {
+    padding-inline-start: var(--spacing-xs);
+  }
+
+  :where(ul, ol) :where(ul, ol) {
+    margin-block: var(--spacing-typography);
     padding-inline-start: var(--spacing-sm);
   }
 
   :where(li) {
     margin-block: var(--spacing-2xs);
-  }
-
-  :where(ul ul, ul ol, ol ul, ol ol) {
-    margin-block: var(--spacing-typography);
   }
 }
