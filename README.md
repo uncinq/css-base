@@ -165,7 +165,7 @@ Token categories referenced across base and layout files include:
 - `--transition-normal`
 - `--border-width-*`, `--border-style-*`, `--radius-*`
 - Component-scoped tokens: `--input-*`, `--select-*`, `--textarea-*`, `--checkbox-*`, `--radio-*`, `--details-*`, `--table-*`, `--figure-*`, `--label-*`
-- Layout tokens: `--gutter`, `--gap`, `--columns`, `--container-max-width-*`, `--flex-*`, `--spacing-section`
+- Layout tokens: `--gutter`, `--gap`, `--columns`, `--container-max-width-*`, `--spacing-section`
 
 Install both peer dependencies:
 

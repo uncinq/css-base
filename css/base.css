@@ -15,6 +15,11 @@
 @import 'base/details.css';
 @import 'base/figure.css';
 @import 'base/form.css';
+@import 'base/form-checkbox.css';
+@import 'base/form-radio.css';
+@import 'base/form-range.css';
+@import 'base/form-select.css';
+@import 'base/form-textarea.css';
 @import 'base/picture.css';
 @import 'base/sup.css';
 @import 'base/table.css';

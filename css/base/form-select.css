@@ -1,0 +1,45 @@
+/* css/base/form-select.css */
+/* Largely inspired by https://knacss.com/ */
+@layer base {
+  select {
+    appearance: none;
+    background-color: var(--select-color-bg);
+    background-image: var(--select-icon);
+    background-position: right var(--select-icon-size) center;
+    background-repeat: no-repeat;
+    background-size: var(--select-icon-size);
+    border: 0;
+    border-radius: var(--select-border-radius);
+    box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border);
+    color: var(--select-color-text);
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    line-height: var(--line-height-normal, 1.5);
+    outline-offset: var(--focus-outline-offset, 2px);
+    padding: var(--select-padding);
+    padding-inline-end: var(--select-padding-end);
+    transition: var(--form-transition);
+    user-select: none;
+    width: 100%;
+
+    &:hover {
+      box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border-hover);
+    }
+
+    &:focus-visible {
+      outline: var(--focus);
+    }
+
+    &[multiple] {
+      background-image: none;
+      cursor: default;
+      padding-right: var(--size-16, 1rem);
+    }
+  }
+
+  :where(optgroup) {
+    color: var(--select-color-optgroup);
+    font-weight: var(--font-weight-bold, 700);
+  }
+}

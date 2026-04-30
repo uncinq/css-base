@@ -7,6 +7,11 @@
     text-decoration-line: var(--link-text-decoration-line);
     text-decoration-thickness: var(--text-decoration-thickness);
 
+    &:focus-visible {
+      outline: var(--focus);
+      outline-offset: var(--focus-outline-offset);
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       transition: var(--link-transition);
     }
