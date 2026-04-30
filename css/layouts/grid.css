@@ -14,9 +14,9 @@
       grid-column: var(--grid-column);
     }
 
-    @media (min-width: 48rem) { --grid-column: var(--grid-column-tablet); }
-    @media (min-width: 64rem) { --grid-column: var(--grid-column-tablet-wide); }
-    @media (min-width: 75rem) { --grid-column: var(--grid-column-laptop); }
-    @media (min-width: 90rem) { --grid-column: var(--grid-column-desktop); }
+    @media (--tablet)      { --grid-column: var(--grid-column-tablet); }
+    @media (--tablet-wide) { --grid-column: var(--grid-column-tablet-wide); }
+    @media (--laptop)      { --grid-column: var(--grid-column-laptop); }
+    @media (--desktop)     { --grid-column: var(--grid-column-desktop); }
   }
 }

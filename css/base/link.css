@@ -8,7 +8,7 @@
     text-decoration-thickness: var(--text-decoration-thickness);
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: var(--transition-normal);
+      transition: var(--link-transition);
     }
 
     @media (hover: hover) and (pointer: fine) {

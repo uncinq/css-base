@@ -6,17 +6,9 @@
     padding-inline: var(--gutter);
     width: 100%;
 
-    @media (min-width: 48rem) { 
-      --container-max-width: var(--container-max-width-tablet); 
-    }
-    @media (min-width: 64rem) { 
-      --container-max-width: var(--container-max-width-tablet-wide); 
-    }
-    @media (min-width: 75rem) { 
-      --container-max-width: var(--container-max-width-laptop); 
-    }
-    @media (min-width: 90rem) { 
-      --container-max-width: var(--container-max-width-desktop); 
-    }
+    @media (--tablet)      { --container-max-width: var(--container-max-width-tablet); }
+    @media (--tablet-wide) { --container-max-width: var(--container-max-width-tablet-wide); }
+    @media (--laptop)      { --container-max-width: var(--container-max-width-laptop); }
+    @media (--desktop)     { --container-max-width: var(--container-max-width-desktop); }
   }
 }
