@@ -12,16 +12,18 @@
     font: inherit;
     line-height: var(--line-height-normal, 1.5);
     min-height: var(--textarea-min-height, 5lh);
+    outline-color: transparent;
     outline-offset: var(--focus-outline-offset, 2px);
+    outline-style: var(--focus-outline-style);
+    outline-width: var(--focus-outline-width);
     padding: var(--textarea-padding, 0.75rem 1rem);
     resize: vertical;
-    transition: var(--form-transition);
     width: 100%;
-
-    &:hover {
-      box-shadow: inset 0 0 0 var(--textarea-border-width) var(--textarea-color-border-hover);
-    }
     
+    &:disabled {
+      opacity: var( --opacity-disabled);
+    }
+
     &:focus-visible {
       outline: var(--focus);
     }
@@ -29,6 +31,16 @@
     &::placeholder {
       color: var(--textarea-color-placeholder);
       opacity: 100%;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--form-transition);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled, :read-only):hover {
+        box-shadow: inset 0 0 0 var(--textarea-border-width) var(--textarea-color-border-hover);
+      }
     }
   }
 }

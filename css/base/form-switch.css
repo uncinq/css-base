@@ -1,0 +1,61 @@
+/* css/base/form-switch.css */
+/* Largely inspired by https://knacss.com/ */
+@layer base {
+  [role="switch"] {
+    align-items: center;
+    appearance: none;
+    background-color: var(--switch-track-color);
+    border: var(--switch-color-border) solid var(--switch-border-width);
+    border-radius: var(--switch-border-radius);
+    display: inline-flex;
+    height: var(--checkable-size, 1.25rem);
+    justify-content: start;
+    margin: 0;
+    padding: 0;
+    width: var(--switch-width);
+    
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+    
+    &:disabled {
+      opacity: var( --opacity-disabled);
+    }
+
+    &::before {
+      content: "";
+    }
+
+    /* Thumb */
+    &::after {
+      background-color: var(--switch-thumb-color);
+      border-radius: var(--switch-border-radius);
+      content: "";
+      flex-shrink: 0;
+      height: var(--checkable-size, 1.25rem);
+      scale: var(--switch-thumb-scale);
+      width: var(--checkable-size, 1.25rem);
+    }
+
+    /* Checked */
+    &:checked {
+      background-color: var(--switch-track-color-checked);
+    }
+    &:checked::before {
+      flex-grow: 1;
+    }
+    &:checked::after {
+      background-color: var(--switch-thumb-color-checked);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--form-transition);
+      &::before {
+        transition: var(--form-transition);
+      }
+      &::after {
+        transition: var(--form-transition);
+      }
+    }
+  }
+}

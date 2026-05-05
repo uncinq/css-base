@@ -29,22 +29,34 @@
     display: block;
     font: inherit;
     line-height: var(--line-height-normal);
+    outline-color: transparent;
     outline-offset: var(--focus-outline-offset, 2px);
+    outline-style: var(--focus-outline-style);
+    outline-width: var(--focus-outline-width);
     padding: var(--input-padding);
-    transition: var(--form-transition);
     width: 100%;
-
-    &:hover {
-      box-shadow: inset 0 0 0 var(--input-border-width) var(--input-color-border-hover);
+    
+    &:disabled {
+      opacity: var( --opacity-disabled);
     }
 
     &:focus-visible {
-      outline: var(--focus-outline-width, 2px) var(--focus-outline-style) var(--focus-color);
+      outline: var(--focus);
     }
 
     &::placeholder {
       color: var(--input-color-placeholder);
       opacity: 100%;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--form-transition);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled, :read-only):hover {
+        box-shadow: inset 0 0 0 var(--input-border-width) var(--input-color-border-hover);
+      }
     }
   }
 
@@ -70,7 +82,9 @@
   }
 
   :where(input[type='date'], input[type='time'], input[type='datetime-local']) {
-    cursor: pointer;
+    &:not(:disabled) {
+      cursor: pointer;
+    }
 
     &::-webkit-calendar-picker-indicator {
       cursor: pointer;

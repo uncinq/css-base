@@ -10,12 +10,19 @@
     background: transparent;
     border: 0;
     color: var(--range-thumb-color);
-    cursor: pointer;
     height: var(--range-thumb-size);
     margin: 0;
     outline-offset: var(--focus-outline-offset, 2px);
     padding: 0;
     width: 100%;
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      opacity: var( --opacity-disabled);
+    }
   }
 
   [type="range"]:focus-visible {

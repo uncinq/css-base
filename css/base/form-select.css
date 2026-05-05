@@ -12,19 +12,24 @@
     border-radius: var(--select-border-radius);
     box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border);
     color: var(--select-color-text);
-    cursor: pointer;
     display: block;
     font: inherit;
     line-height: var(--line-height-normal, 1.5);
+    outline-color: transparent;
     outline-offset: var(--focus-outline-offset, 2px);
+    outline-style: var(--focus-outline-style);
+    outline-width: var(--focus-outline-width);
     padding: var(--select-padding);
     padding-inline-end: var(--select-padding-end);
-    transition: var(--form-transition);
     user-select: none;
     width: 100%;
 
-    &:hover {
-      box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border-hover);
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+    
+    &:disabled {
+      opacity: var( --opacity-disabled);
     }
 
     &:focus-visible {
@@ -35,6 +40,16 @@
       background-image: none;
       cursor: default;
       padding-right: var(--size-16, 1rem);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--form-transition);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled, :read-only):hover {
+        box-shadow: inset 0 0 0 var(--select-border-width) var(--select-color-border-hover);
+      }
     }
   }
 
