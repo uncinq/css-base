@@ -25,7 +25,7 @@
   }
 
   kbd {
-    border: var(--border-width-normal) var(--border-style-normal) var(--color-border);
+    border: var(--border-width-sm) var(--border-style-normal) var(--color-border-default);
     border-radius: var(--radius-sm);
     padding: 0.1em 0.35em;
   }

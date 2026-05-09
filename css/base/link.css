@@ -1,7 +1,7 @@
 /* css/base/link.css */
 @layer base {
   a {
-    color: var(--color-link);
+    color: var(--color-link-default);
     text-underline-offset: var(--text-decoration-offset);
     text-decoration-color: var(--link-color-text-decoration);
     text-decoration-line: var(--link-text-decoration-line);

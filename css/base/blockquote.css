@@ -1,7 +1,7 @@
 /* css/base/blockquote.css */
 @layer base {
   blockquote {
-    border-inline-start: var(--border-width-xl) var(--border-style-normal) var(--color-border);
+    border-inline-start: var(--border-width-lg) var(--border-style-normal) var(--color-border-default);
     font-style: italic;
     margin-block: var(--spacing-typography);
     padding-inline-start: var(--spacing-sm);
