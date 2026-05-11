@@ -6,13 +6,13 @@
   }
 
   :where(code):not(pre > code) {
-    background-color: var(--color-bg-muted);
+    background-color: var(--color-background-muted);
     border-radius: var(--radius-sm);
     padding: 0.1em 0.35em;
   }
 
   pre {
-    background-color: var(--color-bg-muted);
+    background-color: var(--color-background-muted);
     border-radius: var(--radius-md);
     overflow-x: auto;
     padding: var(--spacing-sm);
@@ -25,7 +25,7 @@
   }
 
   kbd {
-    border: var(--border-width-sm) var(--border-style-normal) var(--color-border-default);
+    border: var(--border-width-sm) var(--border-style-normal) var(--color-border);
     border-radius: var(--radius-sm);
     padding: 0.1em 0.35em;
   }

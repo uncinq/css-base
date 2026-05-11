@@ -3,7 +3,7 @@
 @layer base {
   select {
     appearance: none;
-    background-color: var(--select-color-bg);
+    background-color: var(--select-color-background);
     background-image: var(--select-icon);
     background-position: right var(--select-icon-size) center;
     background-repeat: no-repeat;
@@ -39,7 +39,7 @@
     &[multiple] {
       background-image: none;
       cursor: default;
-      padding-right: var(--size-16, 1rem);
+      padding-inline-end: var(--size-16, 1rem);
     }
 
     @media (prefers-reduced-motion: no-preference) {

@@ -158,7 +158,7 @@ This package requires [`@uncinq/design-tokens`](https://github.com/uncinq/design
 
 Token categories referenced across base and layout files include:
 
-- `--color-bg`, `--color-text`, `--color-heading`, `--color-link`, `--color-border`
+- `--color-background`, `--color-text`, `--color-heading`, `--color-link`, `--color-border`
 - `--font-family-text`, `--font-family-heading`
 - `--font-size-*`, `--font-weight-*`, `--line-height-*`
 - `--spacing-*`, `--max-width-*`

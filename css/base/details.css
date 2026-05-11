@@ -1,8 +1,8 @@
 /* css/base/details.css */
 @layer base {
   details {
-    background-color: var(--details-color-bg);
-    border: var(--details-border);
+    background-color: var(--details-color-background);
+    border: var(--border-width-sm) var(--border-style-normal) var(--details-color-border);
     border-radius: var(--details-border-radius);
     box-shadow: var(--details-box-shadow);
     color: var(--details-color-text);
