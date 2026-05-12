@@ -8,7 +8,7 @@
   :where(code):not(pre > code) {
     background-color: var(--color-background-muted);
     border-radius: var(--radius-sm);
-    padding: 0.1em 0.35em;
+    padding: var(--spacing-2xs);
   }
 
   pre {
@@ -25,8 +25,9 @@
   }
 
   kbd {
+    background-color: var(--color-background-muted);
     border: var(--border-width-sm) var(--border-style-normal) var(--color-border);
     border-radius: var(--radius-sm);
-    padding: 0.1em 0.35em;
+    padding: var(--spacing-2xs);
   }
 }
