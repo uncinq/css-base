@@ -9,8 +9,8 @@
   th,
   td {
     border-bottom: var(--border-width-sm) var(--border-style-normal) var(--table-color-border);
-    padding-block: var(--table-cell-padding-y);
-    padding-inline: var(--table-cell-padding-x);
+    padding-block: var(--table-cell-padding-block);
+    padding-inline: var(--table-cell-padding-inline);
     text-align: start;
     vertical-align: top;
   }

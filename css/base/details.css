@@ -32,8 +32,8 @@
     font-weight: var(--details-summary-font-weight);
     justify-content: space-between;
     list-style: none;
-    padding-block: var(--details-summary-padding-y);
-    padding-inline: var(--details-summary-padding-x);
+    padding-block: var(--details-summary-padding-block);
+    padding-inline: var(--details-summary-padding-inline);
 
     &::-webkit-details-marker {
       display: none;
@@ -56,7 +56,7 @@
 
   summary + div {
     font-size: var(--details-content-font-size);
-    padding-block: var(--details-content-padding-y);
-    padding-inline: var(--details-content-padding-x);
+    padding-block: var(--details-content-padding-block);
+    padding-inline: var(--details-content-padding-inline);
   }
 }
