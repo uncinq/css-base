@@ -29,7 +29,7 @@
     }
     
     &:disabled {
-      opacity: var( --opacity-disabled);
+      opacity: var(--opacity-disabled);
     }
 
     &:focus-visible {
