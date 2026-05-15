@@ -41,7 +41,7 @@
     }
 
     &:focus-visible {
-      outline: var(--focus);
+      outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-outline-color);
     }
 
     &::placeholder {

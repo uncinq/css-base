@@ -8,7 +8,7 @@
     text-decoration-thickness: var(--text-decoration-thickness);
 
     &:focus-visible {
-      outline: var(--focus);
+      outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-outline-color);
       outline-offset: var(--focus-outline-offset);
     }
 
