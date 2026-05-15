@@ -28,6 +28,7 @@
     "./css/reset.css": "./css/reset.css",
     "./css/base.css": "./css/base.css",
     "./css/layouts.css": "./css/layouts.css",
+    "./css/mediaqueries.css": "./css/mediaqueries.css",
     "./css/base/*": "./css/base/*",
     "./css/layouts/*": "./css/layouts/*"
   },

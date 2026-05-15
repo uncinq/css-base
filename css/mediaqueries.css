@@ -1,0 +1,15 @@
+/* mediaqueries.css */
+/* https://www.npmjs.com/package/postcss-custom-media */
+@layer config {
+  /* 768px */
+  @custom-media --tablet      (width >= 48rem);
+
+  /* 1024px */
+  @custom-media --tablet-wide (width >= 64rem);
+
+  /* 1440px */
+  @custom-media --laptop      (width >= 90rem);
+
+  /* 1600px */
+  @custom-media --desktop     (width >= 100rem);
+}
