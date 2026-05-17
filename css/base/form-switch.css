@@ -11,6 +11,10 @@
     height: var(--checkable-size, 1.25rem);
     justify-content: start;
     margin: 0;
+    outline-color: transparent;
+    outline-offset: var(--focus-outline-offset, 2px);
+    outline-style: var(--focus-outline-style);
+    outline-width: var(--focus-outline-width);
     padding: 0;
     width: var(--switch-width);
     
@@ -20,6 +24,10 @@
     
     &:disabled {
       opacity: var(--opacity-disabled);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-color-outline);
     }
 
     &::before {
