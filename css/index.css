@@ -1,6 +1,12 @@
 /* @uncinq/css-base — index.css */
 /*
- * Imports all layers in order: mediaqueries and reset first, then base, then layouts.
+ * Imports in order: media queries, then reset, base, layouts. Each file scopes
+ * itself to its own @layer (reset / base / layouts).
+ *
+ * The cascade layer ORDER is intentionally NOT declared here: this is an
+ * imported package, so the order — including layers owned by sibling packages
+ * (tokens, vendors, components) — belongs to the consuming project. Declare it
+ * once at the top of your entry CSS, before any import. See the README.
  */
 @import 'mediaqueries.css';
 @import 'reset.css';

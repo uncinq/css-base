@@ -56,32 +56,39 @@ Reusable layout utility classes:
 
 ## CSS cascade layers
 
-All rules are scoped to named cascade layers, making every declaration safely overridable:
+css-base scopes its rules to three cascade layers it owns:
 
 | Layer | Contents |
 | --- | --- |
-| `@layer config` | Reset and design tokens — foundational baseline, lowest priority |
+| `@layer reset` | CSS reset — foundational baseline |
 | `@layer base` | Native element styles |
 | `@layer layouts` | Layout utility classes |
 
-The intended layer order for a full stack is:
+(Custom media queries live in `mediaqueries.css` and are not layered — `@custom-media` is resolved at build time.)
+
+### Declare the order in your project
+
+The **full** layer order — including layers owned by sibling packages (`tokens`, `vendors`, `components`) — is the **consuming project's** responsibility, not this package's. css-base deliberately does **not** declare it.
+
+CSS fixes a layer's position the **first time its name is seen**; later re-declarations don't reorder it. So declare the order **once, at the very top of your entry CSS, before any `@import`**:
 
 ```css
-@layer config, base, layouts, vendors, components;
+/* your project entry, e.g. main.css */
+@layer reset, tokens, base, layouts, vendors, components;
+
+@import '@uncinq/design-tokens';    /* @layer tokens */
+@import '@uncinq/css-base';         /* @layer reset, base, layouts */
+@import '@uncinq/component-tokens'; /* @layer tokens */
+@import '@uncinq/css-components';   /* @layer components */
 ```
 
-With cascade layers, the **last layer in the order wins**. Placing `config` first gives it the lowest priority — the reset and token defaults can never accidentally override base styles, component styles, or project overrides. `@layer base` and `@layer layouts` sit above it but below vendor and component styles.
+The **last layer wins**: `reset` and `tokens` come first (lowest priority) so reset and token defaults never accidentally override base, layout, vendor, or component styles. If the `@layer …;` line comes *after* an import, it's too late — the imported package will already have fixed the order — so keep it first.
 
-Any layer can be overridden in your own project by importing after this package and writing to the same layer name:
+Override any layer from your project by writing to the same layer name after the imports:
 
 ```css
-@import '@uncinq/css-base'; /* package defaults */
-
-/* your project overrides — same layer, wins by order */
 @layer base {
-  a {
-    --color-link: #0070f3;
-  }
+  a { --color-link: #0070f3; }
 }
 ```
 
@@ -123,8 +130,8 @@ yarn add @uncinq/css-base
 
 ```
 css/
-  index.css                   ← imports reset, base, layouts in order
-  reset.css                   ← Josh W Comeau reset + Un Cinq additions, in @layer config
+  index.css                   ← imports reset, base, layouts (layer order is set by the project — see above)
+  reset.css                   ← Josh W Comeau reset + Un Cinq additions, in @layer reset
   base.css                    ← barrel, imports all base/*
   layouts.css                 ← barrel, imports all layouts/*
   base/
