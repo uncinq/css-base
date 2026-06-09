@@ -12,6 +12,17 @@
       outline-offset: var(--focus-outline-offset);
     }
 
+    &[target="_blank"]::after {
+      background-color: currentColor;
+      content: '';
+      display: inline-block;
+      height: var(--icon-size);
+      margin-inline-start: var(--spacing-2xs);
+      mask: var(--icon-external-link) center / var(--icon-size) no-repeat;
+      vertical-align: baseline;
+      width: var(--icon-size);
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       transition: var(--link-transition);
     }
