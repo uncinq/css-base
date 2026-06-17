@@ -13,6 +13,13 @@
     padding-inline: var(--table-cell-padding-inline);
     text-align: start;
     vertical-align: top;
+
+    > *:first-child {
+      margin-block-start: 0;
+    }
+    > *:last-child {
+      margin-block-end: 0;
+    }
   }
 
   thead th {
