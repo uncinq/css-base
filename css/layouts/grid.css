@@ -1,6 +1,7 @@
 /* css/layouts/grid.css */
 @layer layouts {
   .grid {
+    --columns: var(--columns-mobile, 1);
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
     gap: var(--gap);
@@ -14,9 +15,21 @@
       grid-column: var(--grid-column);
     }
 
-    @media (--tablet)      { --grid-column: var(--grid-column-tablet); }
-    @media (--tablet-wide) { --grid-column: var(--grid-column-tablet-wide); }
-    @media (--laptop)      { --grid-column: var(--grid-column-laptop); }
-    @media (--desktop)     { --grid-column: var(--grid-column-desktop); }
+    @media (--tablet) {
+      --columns: var(--columns-tablet);
+      --grid-column: var(--grid-column-tablet);
+    }
+    @media (--tablet-wide) {
+      --columns: var(--columns-tablet-wide);
+      --grid-column: var(--grid-column-tablet-wide);
+    }
+    @media (--laptop) {
+      --columns: var(--columns-laptop);
+      --grid-column: var(--grid-column-laptop);
+    }
+    @media (--desktop) {
+      --columns: var(--columns-desktop);
+      --grid-column: var(--grid-column-desktop);
+    }
   }
 }
