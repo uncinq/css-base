@@ -29,6 +29,7 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
+        color: var(--color-link-hover);
         text-decoration-color: var(--link-color-text-decoration-hover);
       }
     }
