@@ -4,7 +4,7 @@
     --columns: var(--columns-mobile, 1);
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
-    gap: var(--gap);
+    gap: var(--grid-gap, var(--gap));
 
     /*
      * Each child inherits --grid-column, which updates at every breakpoint.
