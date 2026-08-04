@@ -9,9 +9,11 @@
     font-family: var(--font-family-heading);
     font-size: var(--font-size-heading);
     font-weight: var(--font-weight-heading);
+    letter-spacing: var(--letter-spacing-heading);
     line-height: var(--line-height-heading);
     margin-block: var(--spacing-heading);
     max-width: var(--max-width-heading);
+    text-transform: var(--text-transform-heading);
   }
 
   h1 { --font-size-heading: var(--font-size-heading-01); }
