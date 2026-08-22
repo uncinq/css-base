@@ -74,7 +74,7 @@ CSS fixes a layer's position the **first time its name is seen**; later re-decla
 
 ```css
 /* your project entry, e.g. main.css */
-@layer reset, tokens, base, layouts, vendors, components;
+@layer reset, tokens, vendors, base, layouts, components, pages, utilities;
 
 @import '@uncinq/design-tokens';    /* @layer tokens */
 @import '@uncinq/css-base';         /* @layer reset, base, layouts */
