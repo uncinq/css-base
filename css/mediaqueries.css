@@ -2,14 +2,30 @@
 /* https://www.npmjs.com/package/postcss-custom-media */
 /* @custom-media rules are resolved at build time and are not subject to cascade layers. */
 
+/* ── Scale ──────────────────────────────────────────────────────────────
+   Rungs on a ladder, not devices. A width tells you nothing about the
+   hardware — a 1024px window on a 27" monitor is not a tablet — and naming
+   the steps after devices left one of them a compound. Intent belongs one
+   layer up, in the semantic custom media a component defines for itself
+   (--toc-expand, --header-expand…). */
+
 /* 768px */
-@custom-media --tablet      (width >= 48rem);
+@custom-media --sm (width >= 48rem);
 
 /* 1024px */
-@custom-media --tablet-wide (width >= 64rem);
+@custom-media --md (width >= 64rem);
 
 /* 1440px */
-@custom-media --laptop      (width >= 90rem);
+@custom-media --lg (width >= 90rem);
 
 /* 1600px */
-@custom-media --desktop     (width >= 100rem);
+@custom-media --xl (width >= 100rem);
+
+/* ── Device names, deprecated ───────────────────────────────────────────
+   Aliases of the scale above, kept so existing stylesheets keep working.
+   Prefer --sm/--md/--lg/--xl in new code; these go away in the next major. */
+
+@custom-media --tablet      (--sm);
+@custom-media --tablet-wide (--md);
+@custom-media --laptop      (--lg);
+@custom-media --desktop     (--xl);
