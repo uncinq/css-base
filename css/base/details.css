@@ -58,5 +58,6 @@
     font-size: var(--details-content-font-size);
     padding-block: var(--details-content-padding-block);
     padding-inline: var(--details-content-padding-inline);
+    text-align: var(--details-content-align, start);
   }
 }
