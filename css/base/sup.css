@@ -1,6 +1,19 @@
 /* css/base/sup.css */
 @layer base {
+  /*
+   * The UA default (vertical-align: super) raises the glyph inside the line
+   * box, so the line box grows and any block holding a <sup> gets taller than
+   * one without. Zeroing line-height takes the superscript out of the line box
+   * calculation, and relative positioning raises it without affecting layout.
+   * A label with a required marker then measures exactly like a label without,
+   * and two fields side by side stay aligned.
+   */
   sup {
+    font-size: 0.75em;
+    inset-block-start: -0.5em;
+    line-height: 0;
     margin-inline: 0.1em;
+    position: relative;
+    vertical-align: baseline;
   }
 }
