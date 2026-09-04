@@ -48,7 +48,7 @@ Reusable layout utility classes:
 
 | File | Class(es) |
 | --- | --- |
-| `layouts/container.css` | `.container` — centered, max-width responsive container with gutter |
+| `layouts/container.css` | `.container` — centered, max-width responsive container with gutter; publishes `--container-bleed` |
 | `layouts/grid.css` | `.grid` — CSS grid wrapper with responsive `--grid-column` custom property |
 | `layouts/row.css` | `.row`, `.col-xsmall`, `.col-small`, `.col-medium`, `.col-large`, `.offset-center`, `.offset-end` |
 
@@ -152,7 +152,7 @@ css/
     typography.css            ← p — spacing, max-width
     video.css                 ← video — fluid width
   layouts/
-    container.css             ← .container — centered, responsive max-width
+    container.css             ← .container — centered, responsive max-width, publishes --container-bleed
     grid.css                  ← .grid — CSS grid with responsive column custom property
     row.css                   ← .row + column/offset modifiers
 ```
@@ -172,7 +172,14 @@ Token categories referenced across base and layout files include:
 - `--transition-normal`
 - `--border-width-*`, `--border-style-*`, `--radius-*`
 - Component-scoped tokens: `--input-*`, `--select-*`, `--textarea-*`, `--checkbox-*`, `--radio-*`, `--details-*`, `--table-*`, `--figure-*`, `--label-*`
-- Layout tokens: `--gutter`, `--gap`, `--columns`, `--container-max-width-*`, `--spacing-section`
+- Layout tokens: `--gutter`, `--gap`, `--columns`, `--container-max-width-*`, `--container-bleed-*`, `--spacing-section`
+
+`.container` also *publishes* a custom property of its own, `--container-bleed`: how far a child may pull out of the container to reach the edge of the screen. It resolves per rung from `--container-bleed-*`, the sibling of `--container-max-width-*` — a rung whose max-width is `100%` bleeds by one `--gutter` (the container spans the viewport), a rung that caps bleeds by `0`, since dead space then sits on both sides and a negative margin would stop short of the edge. Full-bleed children (images, carousels…) read `var(--container-bleed, var(--gutter))`, so they still bleed by a gutter outside a `.container`. Change one token and change its pair:
+
+```css
+--container-max-width-desktop: 100%;
+--container-bleed-desktop: var(--gutter);
+```
 
 Install both peer dependencies:
 

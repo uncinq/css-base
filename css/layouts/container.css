@@ -1,14 +1,38 @@
 /* css/layouts/container.css */
+/*
+ * .container — centered wrapper, responsive max-width, gutter on both sides.
+ *
+ * --container-bleed publishes how far a child may pull out of the container to
+ * reach the edge of the screen. Consumers write
+ * var(--container-bleed, var(--gutter)) so they keep bleeding by a gutter
+ * outside a .container.
+ *
+ * It is a token per rung, paired with --container-max-width-* in
+ * @uncinq/component-tokens: a rung whose max-width is 100% bleeds by one gutter
+ * (the container spans the viewport, so the child reaches the edge), a rung
+ * that caps bleeds by 0 — dead space then sits on both sides, and a negative
+ * margin would stop short of the edge, reading as a misalignment rather than a
+ * bleed. The two decisions live side by side in the same token file, so
+ * changing one without the other is a visible omission:
+ *
+ *   --container-max-width-desktop: 100%;
+ *   --container-bleed-desktop: var(--gutter);
+ */
 @layer layouts {
   .container {
+    --container-bleed: var(--container-bleed-mobile);
     margin-inline: auto;
     max-width: var(--container-max-width, var(--container-max-width-mobile));
     padding-inline: var(--gutter);
     width: 100%;
 
-    @media (--tablet)      { --container-max-width: var(--container-max-width-tablet); }
-    @media (--tablet-wide) { --container-max-width: var(--container-max-width-tablet-wide); }
-    @media (--laptop)      { --container-max-width: var(--container-max-width-laptop); }
-    @media (--desktop)     { --container-max-width: var(--container-max-width-desktop); }
+    @media (--tablet)      { --container-max-width: var(--container-max-width-tablet);
+                             --container-bleed: var(--container-bleed-tablet); }
+    @media (--tablet-wide) { --container-max-width: var(--container-max-width-tablet-wide);
+                             --container-bleed: var(--container-bleed-tablet-wide); }
+    @media (--laptop)      { --container-max-width: var(--container-max-width-laptop);
+                             --container-bleed: var(--container-bleed-laptop); }
+    @media (--desktop)     { --container-max-width: var(--container-max-width-desktop);
+                             --container-bleed: var(--container-bleed-desktop); }
   }
 }
