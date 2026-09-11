@@ -68,13 +68,13 @@ css-base scopes its rules to three cascade layers it owns:
 
 ### Declare the order in your project
 
-The **full** layer order — including layers owned by sibling packages (`tokens`, `vendors`, `components`) — is the **consuming project's** responsibility, not this package's. css-base deliberately does **not** declare it.
+The **full** layer order — including layers owned by sibling packages (`tokens`, `components`) and by the project itself (`libs`, `vendors`) — is the **consuming project's** responsibility, not this package's. css-base deliberately does **not** declare it.
 
 CSS fixes a layer's position the **first time its name is seen**; later re-declarations don't reorder it. So declare the order **once, at the very top of your entry CSS, before any `@import`**:
 
 ```css
 /* your project entry, e.g. main.css */
-@layer reset, tokens, vendors, base, layouts, components, pages, utilities;
+@layer reset, tokens, libs, vendors, base, layouts, components, pages, utilities;
 
 @import '@uncinq/design-tokens';    /* @layer tokens */
 @import '@uncinq/css-base';         /* @layer reset, base, layouts */
@@ -83,6 +83,8 @@ CSS fixes a layer's position the **first time its name is seen**; later re-decla
 ```
 
 The **last layer wins**: `reset` and `tokens` come first (lowest priority) so reset and token defaults never accidentally override base, layout, vendor, or component styles. If the `@layer …;` line comes *after* an import, it's too late — the imported package will already have fixed the order — so keep it first.
+
+`libs` and `vendors` are a pair: a third-party stylesheet goes into `libs`, the CSS that dresses it into `vendors`, right after. Keep them separate whenever the library is loaded lazily — it then arrives after your own CSS, and inside one shared layer the library would win every tie on source order. Declare `libs` even if nothing imports into it yet: an undeclared layer name is appended **last**, above `utilities`, and CSS outside any layer is stronger still — so a library imported with no `layer()` at all would beat everything you write.
 
 Override any layer from your project by writing to the same layer name after the imports:
 
