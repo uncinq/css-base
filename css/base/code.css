@@ -1,14 +1,15 @@
 /* css/base/code.css */
 @layer base {
   :where(code, kbd, samp) {
-    font-family: var(--font-family-code);
-    font-size: var(--font-size-xs);
+    font-family: var(--code-font-family, var(--font-family-code));
+    font-size: var(--code-font-size, var(--font-size-xs));
   }
 
   :where(code):not(pre > code) {
-    background-color: var(--color-background-muted);
-    border-radius: var(--radius-sm);
-    padding: var(--spacing-2xs);
+    background-color: var(--code-background-color, var(--color-background-muted));
+    border-radius: var(--code-border-radius, var(--radius-sm));
+    color: var(--code-color, var(--color-text-on-muted));
+    padding: var(--code-padding, var(--spacing-2xs));
   }
 
   pre {
