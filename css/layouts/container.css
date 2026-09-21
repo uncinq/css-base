@@ -3,9 +3,16 @@
  * .container — centered wrapper, responsive max-width, gutter on both sides.
  *
  * --container-bleed publishes how far a child may pull out of the container to
- * reach the edge of the screen. Consumers write
- * var(--container-bleed, var(--gutter)) so they keep bleeding by a gutter
- * outside a .container.
+ * reach the edge of the screen. The property inherits, so it reaches a child
+ * from a .container however far up it sits, and the var() fallback each
+ * consumer writes is its answer to "no .container above me at all".
+ *
+ * Anything that PULLS OUT — a negative margin, an inset — falls back to 0: with
+ * nothing published, the child has no idea what its parent has to give, and a
+ * gutter pulled out of a card or a full-bleed block is a guess that overflows.
+ * Anything that puts room back INSIDE the child's own box falls back to
+ * var(--gutter), the breathing room every other box gets. Inside a container
+ * the two collapse to the published value and the pair cancels out.
  *
  * It is a token per rung, paired with --container-max-width-* in
  * @uncinq/component-tokens: a rung whose max-width is 100% bleeds by one gutter
