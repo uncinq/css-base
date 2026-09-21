@@ -56,7 +56,8 @@
   }
 
   details[open] summary::after {
-    rotate: 180deg;
+    mask-image: var(--details-icon-open, var(--details-icon));
+    rotate: var(--details-icon-rotate-open, 180deg);
   }
 
   summary + div {
