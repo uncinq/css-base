@@ -2,14 +2,16 @@
 @layer base {
   details {
     background-color: var(--details-color-background);
-    border: var(--border-width-sm) var(--border-style-normal) var(--details-color-border);
+    border-color: var(--details-color-border);
     border-radius: var(--details-border-radius);
+    border-style: var(--details-border-style, var(--border-style-normal));
+    border-width: var(--details-border-width, var(--border-width-sm));
     box-shadow: var(--details-box-shadow);
     color: var(--details-color-text);
     margin-block: var(--details-margin);
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: var(--transition-normal);
+      transition: var(--details-transition, var(--transition-normal));
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -45,8 +47,11 @@
       flex-shrink: 0;
       height: var(--details-icon-size);
       mask: var(--details-icon) center / var(--details-icon-size) no-repeat;
-      transition: rotate var(--transition-normal);
       width: var(--details-icon-size);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: var(--details-icon-transition, rotate var(--duration-normal) var(--easing));
+      }
     }
   }
 
