@@ -4,76 +4,19 @@
 
 <img width="1280" height="640" alt="share-css-base" src="https://github.com/user-attachments/assets/3e57aa00-5349-4a2a-bdd5-3369b1ec21c2" />
 
-## What's included
+## Installation
 
-### Reset
+```bash
+npm install @uncinq/css-base @uncinq/design-tokens @uncinq/component-tokens
+```
 
-Based on the [Josh W Comeau custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/), with additions by Un Cinq:
+Both token packages are peer dependencies: this package carries no values of its own and resolves every custom property it references from them.
 
-- Box model normalization (`box-sizing: border-box`)
-- Default margin removal
-- `interpolate-size: allow-keywords` for keyword animations (behind `prefers-reduced-motion: no-preference`)
-- Text rendering (`-webkit-font-smoothing`, `text-rendering`, `font-variant-ligatures`)
-- Media defaults (`display: block`, `max-width: 100%` on `img`, `picture`, `video`, `canvas`, `svg`)
-- Form controls font inheritance
-- Overflow wrap on headings and paragraphs
-- `text-wrap: pretty` on `p`, `text-wrap: balance` on headings
+## Usage
 
-### Base
-
-Styles for native HTML elements, each driven by design tokens from `@uncinq/design-tokens` and `@uncinq/component-tokens`:
-
-| File | Element(s) |
-| --- | --- |
-| `base/accessibility.css` | `.visually-hidden`, `.visually-hidden-focusable` — a11y visibility helpers |
-| `base/body.css` | `body` — background, text color, font family/size/weight/line-height |
-| `base/headings.css` | `h1`–`h6` — color, font, size scale via `--font-size-heading-01…06` |
-| `base/typography.css` | `p` — spacing, max-width |
-| `base/link.css` | `a` — color, underline style, hover transition |
-| `base/blockquote.css` | `blockquote`, `cite` — border-left, italic, muted color |
-| `base/code.css` | `code`, `pre`, `kbd`, `samp` — monospace font, background, inline vs block |
-| `base/list.css` | `ul`, `ol`, `li` — content list indent and spacing (prose context) |
-| `base/address.css` | `address` — removes italic, resets paragraph spacing |
-| `base/details.css` | `details`, `summary` — border, padding, open state, hover shadow |
-| `base/figure.css` | `figure`, `figcaption` — flex layout, responsive caption direction |
-| `base/form.css` | `label`, `legend`, `input`, `select`, `textarea`, `[type='checkbox']`, `[type='radio']` |
-| `base/picture.css` | `picture` — `inline-block` display |
-| `base/table.css` | `table`, `th`, `td`, `thead` — collapse, padding, header weight |
-| `base/time.css` | `time` — small font size |
-| `base/video.css` | `video` — fluid width, auto height |
-
-### Layouts
-
-Reusable layout utility classes:
-
-| File | Class(es) |
-| --- | --- |
-| `layouts/container.css` | `.container` — centered, max-width responsive container with gutter; publishes `--container-bleed` |
-| `layouts/grid.css` | `.grid` — CSS grid wrapper with responsive `--grid-column` custom property |
-| `layouts/row.css` | `.row`, `.col-xsmall`, `.col-small`, `.col-medium`, `.col-large`, `.offset-center`, `.offset-end` |
-
----
-
-## CSS cascade layers
-
-css-base scopes its rules to three cascade layers it owns:
-
-| Layer | Contents |
-| --- | --- |
-| `@layer reset` | CSS reset — foundational baseline |
-| `@layer base` | Native element styles |
-| `@layer layouts` | Layout utility classes |
-
-(Custom media queries live in `mediaqueries.css` and are not layered — `@custom-media` is resolved at build time.)
-
-### Declare the order in your project
-
-The **full** layer order — including layers owned by sibling packages (`tokens`, `components`) and by the project itself (`libs`, `vendors`) — is the **consuming project's** responsibility, not this package's. css-base deliberately does **not** declare it.
-
-CSS fixes a layer's position the **first time its name is seen**; later re-declarations don't reorder it. So declare the order **once, at the very top of your entry CSS, before any `@import`**:
+Declare the cascade layer order once at the top of your entry stylesheet, **before any import**, then import in this order:
 
 ```css
-/* your project entry, e.g. main.css */
 @layer reset, tokens, libs, vendors, base, layouts, components, pages, utilities;
 
 @import '@uncinq/design-tokens';    /* @layer tokens */
@@ -82,129 +25,43 @@ CSS fixes a layer's position the **first time its name is seen**; later re-decla
 @import '@uncinq/css-components';   /* @layer components */
 ```
 
-The **last layer wins**: `reset` and `tokens` come first (lowest priority) so reset and token defaults never accidentally override base, layout, vendor, or component styles. If the `@layer …;` line comes *after* an import, it's too late — the imported package will already have fixed the order — so keep it first.
-
-`libs` and `vendors` are a pair: a third-party stylesheet goes into `libs`, the CSS that dresses it into `vendors`, right after. Keep them separate whenever the library is loaded lazily — it then arrives after your own CSS, and inside one shared layer the library would win every tie on source order. Declare `libs` even if nothing imports into it yet: an undeclared layer name is appended **last**, above `utilities`, and CSS outside any layer is stronger still — so a library imported with no `layer()` at all would beat everything you write.
-
-Override any layer from your project by writing to the same layer name after the imports:
+Groups and individual files are importable too:
 
 ```css
-@layer base {
-  a { --color-link: #0070f3; }
-}
-```
-
-→ MDN: [Using CSS cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
-
----
-
-## Installation
-
-```bash
-npm install @uncinq/css-base
-# or
-yarn add @uncinq/css-base
-```
-
----
-
-## Usage
-
-```css
-/* everything — reset + base + layouts */
-@import '@uncinq/css-base';
-
-/* or by group */
-@import '@uncinq/css-base/css/reset.css';
 @import '@uncinq/css-base/css/base.css';
-@import '@uncinq/css-base/css/layouts.css';
-
-/* or file by file */
-@import '@uncinq/css-base/css/base/body.css';
 @import '@uncinq/css-base/css/base/headings.css';
-@import '@uncinq/css-base/css/layouts/container.css';
-@import '@uncinq/css-base/css/layouts/row.css';
 ```
 
----
+Your build must run [postcss-custom-media](https://www.npmjs.com/package/postcss-custom-media), otherwise the breakpoints in `css/mediaqueries.css` are dropped silently.
 
-## File structure
+## What's included
 
-```
-css/
-  index.css                   ← imports reset, base, layouts (layer order is set by the project — see above)
-  reset.css                   ← Josh W Comeau reset + Un Cinq additions, in @layer reset
-  base.css                    ← barrel, imports all base/*
-  layouts.css                 ← barrel, imports all layouts/*
-  base/
-    accessibility.css         ← .visually-hidden, .visually-hidden-focusable
-    blockquote.css            ← blockquote + cite — border-left, italic, muted color
-    code.css                  ← code, pre, kbd, samp — monospace, background, padding
-    list.css                  ← ul, ol, li — content list indent and spacing
-    address.css               ← address — removes italic, resets paragraph spacing
-    body.css                  ← body — background, color, font, rendering
-    details.css               ← details + summary — border, padding, open/hover states
-    figure.css                ← figure + figcaption — flex layout, responsive captions
-    form.css                  ← label, input, select, textarea, checkbox, radio
-    headings.css              ← h1–h6 — color, font family, size scale
-    link.css                  ← a — color, underline, hover transition
-    picture.css               ← picture — inline-block display
-    table.css                 ← table, th, td — collapse, padding, header weight
-    time.css                  ← time — xs font size
-    typography.css            ← p — spacing, max-width
-    video.css                 ← video — fluid width
-  layouts/
-    container.css             ← .container — centered, responsive max-width, publishes --container-bleed
-    grid.css                  ← .grid — CSS grid with responsive column custom property
-    row.css                   ← .row + column/offset modifiers
-```
+| Group | Layer | Scope |
+| --- | --- | --- |
+| Reset | `@layer reset` | Baseline normalization, based on the [Josh W Comeau reset](https://www.joshwcomeau.com/css/custom-css-reset/) |
+| Base | `@layer base` | 23 files styling native HTML elements from tokens |
+| Layouts | `@layer layouts` | `.container`, `.grid`, `.row` and their modifiers |
+| Media queries | none | The `--sm` / `--md` / `--lg` / `--xl` custom media scale |
 
----
+## Documentation
 
-## Peer dependencies
+Full documentation: **[socle.uncinq.dev/docs/css-base/](https://socle.uncinq.dev/docs/css-base/)**
 
-This package requires [`@uncinq/design-tokens`](https://github.com/uncinq/design-tokens) and [`@uncinq/component-tokens`](https://github.com/uncinq/component-tokens) to resolve the CSS custom properties it references. It does not bundle any token values itself.
+It is also versioned with the code in [`docs/`](docs/), and ships inside the npm package, so it is readable offline and from `node_modules`:
 
-Token categories referenced across base and layout files include:
-
-- `--color-background`, `--color-text`, `--color-heading`, `--color-link`, `--color-border`
-- `--font-family-text`, `--font-family-heading`
-- `--font-size-*`, `--font-weight-*`, `--line-height-*`
-- `--spacing-*`, `--max-width-*`
-- `--transition-normal`
-- `--border-width-*`, `--border-style-*`, `--radius-*`
-- Component-scoped tokens: `--input-*`, `--select-*`, `--textarea-*`, `--checkbox-*`, `--radio-*`, `--details-*`, `--table-*`, `--figure-*`, `--label-*`
-- Layout tokens: `--gutter`, `--gap`, `--columns`, `--container-max-width-*`, `--container-bleed-*`, `--spacing-section`
-
-`.container` also *publishes* a custom property of its own, `--container-bleed`: how far a child may pull out of the container to reach the edge of the screen. It resolves per rung from `--container-bleed-*`, the sibling of `--container-max-width-*` — a rung whose max-width is `100%` bleeds by one `--gutter` (the container spans the viewport), a rung that caps bleeds by `0`, since dead space then sits on both sides and a negative margin would stop short of the edge. Full-bleed children (images, carousels…) read it through `var()`. The property inherits, so it reaches them from a `.container` however far up it sits, and the fallback each consumer writes is its answer to "no `.container` above me at all": **`0px` for anything that pulls out** (a negative margin has no idea what a card or a full-bleed block has to give, and a guessed gutter overflows), **`var(--gutter)` for anything that puts room back inside the child's own box** (a full-bleed block spans the viewport with no inset of its own, so without it the content touches the screen). Inside a container both read the published value and the pair cancels out. Change one token and change its pair:
-
-```css
---container-max-width-desktop: 100%;
---container-bleed-desktop: var(--gutter);
-```
-
-Install both peer dependencies:
-
-```bash
-npm install @uncinq/design-tokens @uncinq/component-tokens
-```
-
-→ [`@uncinq/design-tokens`](https://github.com/uncinq/design-tokens) — primitive and semantic design tokens (color, typography, spacing, …)
-→ [`@uncinq/component-tokens`](https://github.com/uncinq/component-tokens) — component-scoped tokens (form, table, figure, …)
-
-Then import them before this package so the tokens resolve correctly:
-
-```css
-@import '@uncinq/design-tokens';
-@import '@uncinq/component-tokens';
-@import '@uncinq/css-base';
-```
-
----
+- [Cascade layers](docs/cascade-layers.md) — the three layers, and why the order is yours to declare
+- [Reset](docs/reset.md)
+- [Base](docs/base.md) — the full element reference
+- [Layouts](docs/layouts.md) — including the `--container-bleed` contract
+- [Media queries](docs/mediaqueries.md)
 
 ## References
 
 - [`@uncinq/design-tokens`](https://github.com/uncinq/design-tokens) — primitive and semantic design tokens
 - [`@uncinq/component-tokens`](https://github.com/uncinq/component-tokens) — component-scoped tokens
-- [Josh W Comeau custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/) — the reset foundation used in `css/reset.css`
+- [`@uncinq/css-components`](https://github.com/uncinq/css-components) — the component layer built on this package
 - [MDN: CSS cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
+
+## License
+
+MIT © [Un Cinq](https://uncinq.dev/)

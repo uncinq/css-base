@@ -13,9 +13,9 @@
  * Width = span/cols * 100% − (1 − span/cols) * gap (the gap term gives back the gaps the item does
  * not occupy).
  *
- * Offset modifiers:
- *   .offset-center — margin-inline: auto at tablet-wide+
- *   .offset-end    — margin-inline-start: auto at tablet-wide+
+ * Offset modifiers, applied from tablet+ alongside the column modifiers:
+ *   .offset-center — margin-inline: auto
+ *   .offset-end    — margin-inline-start: auto
  */
 @layer layouts {
   .row {
