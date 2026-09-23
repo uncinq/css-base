@@ -3,6 +3,7 @@ isIndex: false
 title: Reset
 description: The baseline normalization applied in @layer reset, based on the Josh W Comeau custom CSS reset.
 weight: 2
+icon: arrow-counterclockwise
 ---
 
 `css/reset.css` is a single file scoped to `@layer reset`. It is based on the [Josh W Comeau custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/), with a few additions by Un Cinq.

@@ -3,6 +3,7 @@ isIndex: false
 title: Layouts
 description: The .container, .grid and .row primitives, and the --container-bleed contract.
 weight: 4
+icon: layout-three-columns
 ---
 
 `@layer layouts` ships three primitives. They are deliberately few: everything else is a component's job.

@@ -3,6 +3,7 @@ isIndex: false
 title: Base
 description: Styles for native HTML elements, one file per element or element family, all in @layer base.
 weight: 3
+icon: type
 ---
 
 `@layer base` styles native HTML elements so that unstyled markup already looks right. There is no class to apply: write `<table>`, `<blockquote>` or `<input type="date">` and they are styled.
