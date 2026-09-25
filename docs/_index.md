@@ -60,7 +60,7 @@ Or import file by file, when you want only part of the base layer:
 The full import order, tokens before CSS, looks like this:
 
 ```css
-@layer reset, tokens, libs, vendors, base, layouts, components, pages, utilities;
+@layer reset, tokens, libs, base, vendors, layouts, components, pages, utilities;
 
 @import '@uncinq/design-tokens';    /* @layer tokens */
 @import '@uncinq/css-base';         /* @layer reset, base, layouts */

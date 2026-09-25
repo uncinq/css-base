@@ -17,7 +17,7 @@ Both token packages are peer dependencies: this package carries no values of its
 Declare the cascade layer order once at the top of your entry stylesheet, **before any import**, then import in this order:
 
 ```css
-@layer reset, tokens, libs, vendors, base, layouts, components, pages, utilities;
+@layer reset, tokens, libs, base, vendors, layouts, components, pages, utilities;
 
 @import '@uncinq/design-tokens';    /* @layer tokens */
 @import '@uncinq/css-base';         /* @layer reset, base, layouts */
