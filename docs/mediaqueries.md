@@ -2,7 +2,7 @@
 isIndex: false
 title: Media queries
 description: The --sm to --xl custom media scale, the deprecated device aliases, and the PostCSS plugin the package requires.
-weight: 5
+weight: 6
 icon: display
 ---
 

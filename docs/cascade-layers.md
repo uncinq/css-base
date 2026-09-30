@@ -2,7 +2,7 @@
 isIndex: false
 title: Cascade layers
 description: The three layers this package owns, and why declaring the full order is the consuming project's job.
-weight: 1
+weight: 2
 icon: stack
 ---
 

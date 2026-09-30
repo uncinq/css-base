@@ -2,7 +2,7 @@
 isIndex: false
 title: Reset
 description: The baseline normalization applied in @layer reset, based on the Josh W Comeau custom CSS reset.
-weight: 2
+weight: 3
 icon: arrow-counterclockwise
 ---
 

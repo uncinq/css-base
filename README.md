@@ -47,12 +47,17 @@ Your build must run [postcss-custom-media](https://www.npmjs.com/package/postcss
 
 Full documentation: **[socle.uncinq.dev/docs/css-base/](https://socle.uncinq.dev/docs/css-base/)**
 
-It is also versioned with the code in [`docs/`](docs/), and ships inside the npm package, so it is readable offline and from `node_modules`:
+It is also versioned with the code in [`docs/`](docs/), one page per element and per layout primitive, and ships inside the npm package, so it is readable offline and from `node_modules`:
 
+- [Overview](docs/overview.md) — installation, import order, file structure
 - [Cascade layers](docs/cascade-layers.md) — the three layers, and why the order is yours to declare
 - [Reset](docs/reset.md)
-- [Base](docs/base.md) — the full element reference
-- [Layouts](docs/layouts.md) — including the `--container-bleed` contract
+- [Base](docs/base/) — 23 pages, one per file
+  - Text — [body](docs/base/body.md), [headings](docs/base/headings.md), [paragraphs](docs/base/paragraphs.md), [links](docs/base/link.md), [lists](docs/base/list.md), [blockquotes](docs/base/blockquote.md), [code](docs/base/code.md), [address](docs/base/address.md), [abbreviations](docs/base/abbr.md), [superscript](docs/base/sup.md)
+  - Media — [figures](docs/base/figure.md), [picture](docs/base/picture.md), [video](docs/base/video.md), [tables](docs/base/table.md), [details](docs/base/details.md)
+  - Forms — [inputs and labels](docs/base/form.md), [checkboxes](docs/base/form-checkbox.md), [radios](docs/base/form-radio.md), [range](docs/base/form-range.md), [select](docs/base/form-select.md), [switch](docs/base/form-switch.md), [textarea](docs/base/form-textarea.md)
+  - [Accessibility helpers](docs/base/accessibility.md)
+- [Layouts](docs/layouts/) — [`.container`](docs/layouts/container.md) and the `--container-bleed` contract, [`.grid`](docs/layouts/grid.md), [`.row`](docs/layouts/row.md)
 - [Media queries](docs/mediaqueries.md)
 
 ## References
