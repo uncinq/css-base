@@ -46,17 +46,39 @@ Declare `libs` even when nothing imports into it yet. An undeclared layer name i
 
 ## Overriding from your project
 
-Write to the same layer name after the imports:
+Write to the same layer name after the imports.
+
+Most of the time there is a token for what you want to change, and it is read from `:root`, so redefine it there:
 
 ```css
 @layer base {
-  a {
+  :root {
     --color-link: #0070f3;
   }
 }
 ```
 
-Because css-base uses low-specificity selectors throughout, and `:where()` in several files, an override rarely needs to escalate specificity. Prefer redefining the custom property, as above, over rewriting the declaration.
+Rewrite a rule only when no token covers the declaration:
+
+```css
+@layer base {
+  table {
+    width: auto;
+  }
+}
+```
+
+Because css-base uses low-specificity selectors throughout, and `:where()` in several files, such an override rarely needs to escalate specificity.
+
+Setting a token on a selector rather than on `:root` is for a **scoped** change, where only one subtree should follow the new value:
+
+```css
+@layer base {
+  footer {
+    --color-link: currentColor;
+  }
+}
+```
 
 ## Reference
 

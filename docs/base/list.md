@@ -10,7 +10,7 @@ icon: list-ul
 
 ```css
 :where(ul, ol) {
-  padding-inline-start: var(--size-16);
+  padding-inline-start: var(--spacing-sm);
 }
 
 :where(ul, ol) :where(ul, ol) {
