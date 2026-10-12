@@ -20,8 +20,18 @@ A flex wrapper, stacked on mobile and turning into a row at the `--tablet` break
   --columns: var(--columns-mobile, 1);
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   gap: var(--grid-gap, var(--gap));
+
+  > * {
+    min-width: 0;
+  }
+}
+
+@media (--tablet) {
+  .row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 ```
 
@@ -73,3 +83,9 @@ Both are inline-direction aware, so they follow a right-to-left document without
 ## `flex-wrap: wrap` is deliberate
 
 Children whose spans add up to more than the row wrap onto a new line rather than being compressed below their declared proportion. A `.col-medium` and a `.col-small` in the same row, which is 2/3 plus 1/2, wrap on purpose.
+
+It is only set from `--tablet`, alongside `flex-direction: row`. A stacked row has nothing to wrap, and a multi-line flex container sizes each line to its widest child rather than to the container: one wide child would then widen every item past the screen.
+
+## Children never grow past the row
+
+Every direct child gets `min-width: 0`. A flex item's default minimum is its min-content width, so one long unbreakable line in a `<pre>`, or a wide table, would keep the item from shrinking and push the whole page sideways. With a `0` minimum the item keeps its declared width and the overflow stays inside it, where the child handles it (`pre` already has `overflow-x: auto`). This is the row counterpart of the `minmax(0, 1fr)` tracks of [`.grid`](../grid/).

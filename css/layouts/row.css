@@ -23,8 +23,16 @@
     --columns: var(--columns-mobile, 1);
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     gap: var(--grid-gap, var(--gap));
+
+    /*
+     * A flex item's automatic minimum is its min-content: one child with a long
+     * unbreakable line (a <pre>, a wide table) would refuse to shrink and push
+     * the row past its container. A 0 minimum leaves the overflow to the child.
+     */
+    > * {
+      min-width: 0;
+    }
 
     @media (--tablet)      { --columns: var(--columns-tablet); }
     @media (--tablet-wide) { --columns: var(--columns-tablet-wide); }
@@ -34,8 +42,14 @@
 
   /* Tablet+ */
   @media (--tablet) {
+    /*
+     * Wrap only along a row. In a stacked (column) row it never wraps anyway,
+     * and a multi-line flex container sizes each line to its widest child
+     * instead of to the container, so a wide child would widen every item.
+     */
     .row {
       flex-direction: row;
+      flex-wrap: wrap;
     }
 
     .col-xsmall { --col-span: calc(var(--columns) / 3); }
