@@ -19,7 +19,7 @@ A CSS grid wrapper whose column count follows the breakpoint.
 .grid {
   --columns: var(--columns-mobile, 1);
   display: grid;
-  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
   gap: var(--grid-gap, var(--gap));
 
   & > * {
@@ -35,6 +35,18 @@ A CSS grid wrapper whose column count follows the breakpoint.
 | `--grid-gap` | Gap, falls back to `--gap` |
 
 At each breakpoint the grid reassigns both `--columns` and `--grid-column`, so the track count and the default span move together.
+
+## Tracks never grow past the container
+
+The tracks are `minmax(0, 1fr)` rather than a bare `1fr`. A `1fr` track has an `auto` minimum: it cannot shrink below the min-content width of its widest child. One long unbreakable line in a `<pre>`, or a wide table, would then stretch the track past the container and make the whole page scroll sideways.
+
+With a `0` minimum the tracks stay equal and the overflow stays inside the child, which handles it itself (`pre` already has `overflow-x: auto`). Give any other wide content its own scroll container:
+
+```css
+.table-wrapper {
+  overflow-x: auto;
+}
+```
 
 ## Giving one child a different span
 

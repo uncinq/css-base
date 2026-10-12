@@ -3,7 +3,13 @@
   .grid {
     --columns: var(--columns-mobile, 1);
     display: grid;
-    grid-template-columns: repeat(var(--columns), 1fr);
+    /*
+     * minmax(0, 1fr), not 1fr: a bare 1fr track has an `auto` minimum, so one
+     * child with a wide min-content (a long line in a <pre>, a wide table)
+     * would stretch the track past the container and scroll the whole page.
+     * A 0 minimum keeps the tracks equal and leaves the overflow to the child.
+     */
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
     gap: var(--grid-gap, var(--gap));
 
     /*
