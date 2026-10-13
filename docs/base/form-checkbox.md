@@ -66,7 +66,8 @@ It is the correct state for a "select all" box whose children are partly checked
 
 ```css
 [type='checkbox'] + label {
-  --label-padding: var(--checkbox-label-padding);
+  --label-padding-block: var(--checkbox-label-padding-block);
+  --label-padding-inline: var(--checkbox-label-padding-inline);
 }
 
 [type='checkbox']:not(:disabled) + label {

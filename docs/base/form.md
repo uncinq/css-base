@@ -26,7 +26,7 @@ label, legend {
 }
 ```
 
-`display: block` puts the label on its own line, which is the layout a stacked form wants. The [checkbox](../form-checkbox/) and [radio](../form-radio/) files override the padding through `--label-padding` for their inline rows.
+`display: block` puts the label on its own line, which is the layout a stacked form wants. The [checkbox](../form-checkbox/) and [radio](../form-radio/) files override the padding through `--label-padding-block` and `--label-padding-inline` for their inline rows.
 
 ## Which inputs this file catches
 

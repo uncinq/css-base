@@ -60,7 +60,8 @@ The `::before` exists at every moment; only its `scale` changes. That is what ma
 
 ```css
 [type='radio'] + label {
-  --label-padding: var(--radio-label-padding);
+  --label-padding-block: var(--radio-label-padding-block);
+  --label-padding-inline: var(--radio-label-padding-inline);
 }
 
 [type='radio']:not(:disabled) + label {
