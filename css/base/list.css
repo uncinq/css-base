@@ -2,18 +2,33 @@
 /*
  * Styles for content lists (prose context).
  * Navigation and UI lists are typically reset to list-style: none elsewhere.
+ *
+ * Markers stay outside, the user agent default, so wrapped lines and nested
+ * lists hang under the item text. The indent is in em because the marker
+ * scales with the font, and ol gets more room than ul for two-digit numbers.
+ * Nested lists need no indent rule, every list carries its own: only their
+ * block margin is set.
+ *
+ * The marker types are optional hooks: unset, revert-layer hands them back to
+ * the user agent, which keeps its disc, circle, square progression.
  */
 @layer base {
-  :where(ul, ol) {
-    padding-inline-start: var(--spacing-sm);
+  :where(ul) {
+    list-style-type: var(--list-style-type, revert-layer);
+    padding-inline-start: var(--list-padding-inline-start, 1.5em);
+  }
+
+  :where(ol) {
+    list-style-type: var(--list-ordered-style-type, revert-layer);
+    padding-inline-start: var(--list-ordered-padding-inline-start, 2em);
   }
 
   :where(ul, ol) :where(ul, ol) {
-    margin-block: var(--spacing-typography);
-    padding-inline-start: var(--spacing-sm);
+    margin-block-end: var(--list-nested-margin-block-end, var(--spacing-typography));
+    margin-block-start: var(--list-nested-margin-block-start, var(--spacing-typography));
   }
 
   :where(li) {
-    margin-block: var(--spacing-2xs);
+    margin-block: var(--list-item-gap, var(--spacing-2xs));
   }
 }
