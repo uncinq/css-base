@@ -79,7 +79,7 @@ The [switch](../form-switch/) and the [range](../form-range/) thumb are the two 
 | `date`, `time`, `datetime-local` | `cursor: pointer`, and a calendar picker indicator that goes from 60% to full opacity on hover and focus |
 | `file` | `cursor: pointer`, a tighter padding, and a styled `::file-selector-button` |
 
-The file selector button reads `--form-color-accent` and `--form-color-text-on-accent`, with `--form-color-accent-hover` on hover, so it matches the accent used by the [checkbox](../form-checkbox/) tick without being a button component.
+The file selector button reads `--form-color-accent` and `--form-color-on-accent`, with `--form-color-accent-hover` on hover, so it matches the accent used by the [checkbox](../form-checkbox/) tick without being a button component.
 
 Most of these are wrapped in `:where()`, which contributes no specificity, so a component overrides them with a single class.
 

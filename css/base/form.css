@@ -116,7 +116,7 @@
       background-color: var(--form-color-accent);
       border: 0;
       border-radius: var(--input-border-radius);
-      color: var(--form-color-text-on-accent);
+      color: var(--form-color-on-accent);
       cursor: pointer;
       font: inherit;
       margin-inline-end: var(--file-button-margin-end, 0.75rem);

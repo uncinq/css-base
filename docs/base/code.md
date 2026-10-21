@@ -17,7 +17,7 @@ icon: code-slash
 :where(code):not(pre > code) {
   background-color: var(--code-color-background, var(--color-background-muted));
   border-radius: var(--code-border-radius, var(--radius-sm));
-  color: var(--code-color-text, var(--color-text-on-muted));
+  color: var(--code-color-text, var(--color-on-muted));
   padding: var(--code-padding, var(--spacing-2xs));
 }
 ```
