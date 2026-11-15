@@ -3,7 +3,7 @@ isIndex: false
 title: Paragraphs
 description: Block spacing and a measure cap on p, and the two places that cap is deliberately removed.
 weight: 4
-icon: text-paragraph
+icon: pilcrow
 ---
 
 `base/typography.css` styles `p` and nothing else.

@@ -3,7 +3,7 @@ isIndex: false
 title: Container
 description: The centred wrapper, its responsive max-width, and the --container-bleed contract every full-bleed child depends on.
 weight: 2
-icon: bounding-box
+icon: square-dashed
 ---
 
 A centred wrapper with a responsive max-width and a gutter on both sides.

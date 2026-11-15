@@ -3,7 +3,7 @@ isIndex: false
 title: Address
 description: Undoing the user agent italic on address, and the paragraph spacing that would otherwise break it apart.
 weight: 9
-icon: geo-alt
+icon: map-pin
 ---
 
 `base/address.css` exists to undo two things rather than to add any.

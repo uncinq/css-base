@@ -3,7 +3,7 @@ isIndex: false
 title: Media queries
 description: The --sm to --xl custom media scale, the deprecated device aliases, and the PostCSS plugin the package requires.
 weight: 6
-icon: display
+icon: monitor
 ---
 
 `css/mediaqueries.css` declares the breakpoint scale as `@custom-media` rules. It is imported first by `css/index.css` and sits outside any cascade layer, because `@custom-media` is resolved at build time and is never subject to the cascade.

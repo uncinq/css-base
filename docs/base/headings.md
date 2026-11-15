@@ -3,7 +3,7 @@ isIndex: false
 title: Headings
 description: One shared rule for h1 to h6, and a per-level size token that each element reassigns.
 weight: 3
-icon: type-h1
+icon: heading-1
 ---
 
 `base/headings.css` styles `h1` to `h6` with a single rule, then gives each level its size by reassigning one custom property.

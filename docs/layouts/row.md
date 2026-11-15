@@ -3,7 +3,7 @@ isIndex: false
 title: Row
 description: The flex wrapper, its four proportional column modifiers, the gap term in their width formula, and the two offsets.
 weight: 4
-icon: columns-gap
+icon: columns-2
 ---
 
 A flex wrapper, stacked on mobile and turning into a row at the `--tablet` breakpoint and above.

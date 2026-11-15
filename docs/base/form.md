@@ -3,7 +3,7 @@ isIndex: false
 title: Inputs and labels
 description: label, legend and every text-like input, the inset box-shadow outline, and the per-type handling for search, number, date and file.
 weight: 17
-icon: input-cursor-text
+icon: text-cursor-input
 ---
 
 `base/form.css` is the largest file in the layer. It styles `label`, `legend` and every `input` that is not a button, a checkbox, a radio or a range. Largely inspired by [KNACSS](https://knacss.com/).

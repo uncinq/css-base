@@ -3,7 +3,7 @@ isIndex: false
 title: Radios
 description: The same box as the checkbox, drawn round, with a ::before dot that scales in from zero.
 weight: 19
-icon: record-circle
+icon: circle-dot
 ---
 
 `base/form-radio.css` mirrors [the checkbox](../form-checkbox/) almost rule for rule, with one structural difference: the dot is a real element that scales, not a mask that appears. Largely inspired by [KNACSS](https://knacss.com/).

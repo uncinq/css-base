@@ -3,7 +3,7 @@ isIndex: false
 title: Switch
 description: A track and knob built from a checkbox with role="switch", moved with flex-grow rather than translation.
 weight: 22
-icon: toggle-on
+icon: toggle-right
 ---
 
 `base/form-switch.css` styles `[role="switch"]`. Largely inspired by [KNACSS](https://knacss.com/).

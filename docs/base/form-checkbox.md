@@ -3,7 +3,7 @@ isIndex: false
 title: Checkboxes
 description: A custom checkbox built from appearance none, with a masked tick, an indeterminate state and a clickable adjacent label.
 weight: 18
-icon: check-square
+icon: square-check
 ---
 
 `base/form-checkbox.css` replaces the native checkbox with a box this package draws itself. Largely inspired by [KNACSS](https://knacss.com/).

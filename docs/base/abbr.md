@@ -3,7 +3,7 @@ isIndex: false
 title: Abbreviations
 description: A dotted underline on abbr[title], and why this is the one file in the layer with hardcoded values.
 weight: 10
-icon: fonts
+icon: a-large-small
 ---
 
 `base/abbr.css` styles `abbr` only when it carries a `title`.

@@ -3,7 +3,7 @@ isIndex: false
 title: Lists
 description: Prose list indentation in em, sized for the marker, and item spacing, wrapped in :where() so a navigation list overrides it for free.
 weight: 6
-icon: list-ul
+icon: list
 ---
 
 `base/list.css` styles `ul`, `ol` and `li` for a **prose context**: a list inside running text, with markers and indentation.

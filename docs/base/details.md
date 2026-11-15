@@ -3,7 +3,7 @@ isIndex: false
 title: Details
 description: A bordered disclosure with a masked marker, an open state, and the summary + div contract it expects.
 weight: 16
-icon: caret-down-square
+icon: square-chevron-down
 ---
 
 `base/details.css` is the largest non-form file in the layer. It styles the native disclosure element as a bordered card, replaces the user agent marker with a masked icon, and expects one structural convention.

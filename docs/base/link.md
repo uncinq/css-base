@@ -3,7 +3,7 @@ isIndex: false
 title: Links
 description: Colour, underline and focus ring on a, and the automatic marker on target="_blank".
 weight: 5
-icon: link-45deg
+icon: link
 ---
 
 `base/link.css` styles `a` directly. There is no `.link` class.

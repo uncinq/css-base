@@ -3,7 +3,7 @@ isIndex: false
 title: Code
 description: Inline code, block code, kbd and samp, and the component-token-with-semantic-fallback pattern this file demonstrates.
 weight: 8
-icon: code-slash
+icon: code-xml
 ---
 
 `base/code.css` covers four elements and draws one distinction the user agent does not: inline `code` is styled as a chip, `code` inside `pre` is not.

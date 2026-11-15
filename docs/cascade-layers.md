@@ -3,7 +3,7 @@ isIndex: false
 title: Cascade layers
 description: The three layers this package owns, and why declaring the full order is the consuming project's job.
 weight: 2
-icon: stack
+icon: layers
 ---
 
 css-base scopes every rule it ships to one of three cascade layers it owns.

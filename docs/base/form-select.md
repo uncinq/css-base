@@ -3,7 +3,7 @@ isIndex: false
 title: Select
 description: A select with its own chevron, the padding that keeps text off it, and the multiple case that drops it.
 weight: 21
-icon: menu-button-wide
+icon: chevrons-up-down
 ---
 
 `base/form-select.css` styles `select` and `optgroup`. Largely inspired by [KNACSS](https://knacss.com/).

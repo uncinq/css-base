@@ -3,7 +3,7 @@ isIndex: false
 title: Range
 description: The slider, its two vendor track and thumb implementations, and the .range-value output that follows the thumb via anchor positioning.
 weight: 20
-icon: sliders
+icon: sliders-horizontal
 ---
 
 `base/form-range.css` styles `[type='range']` plus two optional classes, `.range` and `.range-value`.

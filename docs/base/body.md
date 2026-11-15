@@ -3,7 +3,7 @@ isIndex: false
 title: Body
 description: The six tokens on body that every other element inherits from.
 weight: 2
-icon: window
+icon: app-window
 ---
 
 `base/body.css` sets the six properties that everything else inherits. It is the shortest file in the layer and the one with the widest reach.

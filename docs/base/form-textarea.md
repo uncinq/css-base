@@ -3,7 +3,7 @@ isIndex: false
 title: Textarea
 description: A textarea that grows with its content through field-sizing, with a 5lh floor and vertical resizing kept.
 weight: 23
-icon: textarea-resize
+icon: notepad-text
 ---
 
 `base/form-textarea.css` styles `textarea` with the same box as [the text inputs](../form/), plus three declarations specific to a multi-line control. Largely inspired by [KNACSS](https://knacss.com/).

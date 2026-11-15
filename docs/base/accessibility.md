@@ -3,7 +3,7 @@ isIndex: false
 title: Accessibility helpers
 description: .visually-hidden and .visually-hidden-focusable, the only two classes in @layer base.
 weight: 24
-icon: universal-access
+icon: accessibility
 ---
 
 `base/accessibility.css` is the only file in this layer that ships classes rather than element selectors.
