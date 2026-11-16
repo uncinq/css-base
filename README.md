@@ -67,6 +67,10 @@ It is also versioned with the code in [`docs/`](docs/), one page per element and
 - [`@uncinq/css-components`](https://github.com/uncinq/css-components) — the component layer built on this package
 - [MDN: CSS cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
 
+## Sponsors
+
+Socle is free and open source. If it saves you time, you can support its development on [GitHub Sponsors](https://github.com/sponsors/sebousan).
+
 ## License
 
 MIT © [Un Cinq](https://uncinq.dev/)
