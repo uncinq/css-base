@@ -20,7 +20,7 @@ Every value comes from a custom property resolved by [@uncinq/design-tokens](htt
 | [Headings](../headings/) | `base/headings.css` | `h1` to `h6`, plus a per-level size from `--font-size-heading-01` to `-06` |
 | [Paragraphs](../paragraphs/) | `base/typography.css` | `p`: block spacing and `--max-width-paragraph` |
 | [Links](../link/) | `base/link.css` | `a`: colour, underline, focus ring, external-link marker |
-| [Lists](../list/) | `base/list.css` | `ul`, `ol`, `li` in prose context, including nested indentation |
+| [Lists](../list/) | `base/list.css` | `ul`, `ol`, `li` in prose context, including nested indentation and the paragraph measure |
 | [Blockquotes](../blockquote/) | `base/blockquote.css` | `blockquote`, `blockquote cite` |
 | [Code](../code/) | `base/code.css` | `code`, `kbd`, `samp`, `pre`, and inline `code` separately from block code |
 | [Address](../address/) | `base/address.css` | `address`: removes the UA italic and resets inner paragraph spacing |

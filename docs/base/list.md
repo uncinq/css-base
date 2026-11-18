@@ -1,7 +1,7 @@
 ---
 isIndex: false
 title: Lists
-description: Prose list indentation in em, sized for the marker, and item spacing, wrapped in :where() so a navigation list overrides it for free.
+description: Prose list indentation in em, sized for the marker, item spacing and the paragraph measure, wrapped in :where() so a navigation list overrides it for free.
 weight: 6
 icon: list
 ---
@@ -27,6 +27,10 @@ icon: list
 :where(li) {
   margin-block: var(--list-item-gap, var(--spacing-2xs));
 }
+
+:where(:is(ul, ol):not([class]) > li) {
+  max-width: var(--list-item-max-width, var(--max-width-paragraph));
+}
 ```
 
 | Rule | Effect |
@@ -35,8 +39,9 @@ icon: list
 | `:where(ol)` | The same, with room for two-digit numbers, from `--list-ordered-padding-inline-start` and `--list-ordered-style-type` |
 | Nested list | Block spacing above and below a list inside an item, from `--list-nested-margin-block-start` and `--list-nested-margin-block-end` |
 | `:where(li)` | A small gap between items, from `--list-item-gap` |
+| Item of a list without a class | The paragraph measure, from `--list-item-max-width` when set, `--max-width-paragraph` otherwise |
 
-Nested lists get no indent rule, see [nested lists](#nested-lists).
+Nested lists get no indent rule, see [nested lists](#nested-lists). The measure only applies to lists without a class, see [the measure](#items-share-the-paragraph-measure).
 
 ## Markers stay outside
 
@@ -85,9 +90,37 @@ These figures hold for fonts with ordinary figures. Wider ones need more: Verdan
 
 Remove it with the property, as above, and not with the token: set on `.plain`, `--list-padding-inline-start: 0` would be inherited by every list inside it, and their markers would end up outside the box.
 
+## Items share the paragraph measure
+
+A [paragraph](../paragraphs/) stops at `--max-width-paragraph`, and a list item of running text gets the same cap, so a long list in a wide column wraps where the paragraphs around it do. A loose Markdown list already did, through the `p` inside each item; the rule gives a tight list, whose text sits directly in the `li`, the same line length.
+
+The cap is on the item, not on the list: the marker hangs in the list's padding, so the text of an item gets the full measure, exactly as the `p` of a loose item does. A nested item is capped too, but inside a parent item that already is, so it never reaches its own cap.
+
+**Lists with a class are left alone.** The other rules of this file rely on `:where()`, and a UI list undoes them by setting the same properties with its class. That does not work for this one: a grid of cards or a menu built on `li` never sets `max-width`, and its items would stop at the measure in any column wider than it. So the rule only targets lists without a class, which is what a Markdown renderer produces, and treats a class on the list as the sign of a UI list. A list styled from an ancestor, such as `.sidebar ul`, has no class of its own and gets the cap; reset it there if its items are layout boxes:
+
+```css
+.sidebar ul > li {
+  max-width: none;
+}
+```
+
+**`--list-item-max-width` is a hook, not a token.** It is undefined by default, like the [marker hooks](#markers), and the fallback is resolved on each item. That is what keeps lists in step with paragraphs: a scope that sets `--max-width-paragraph`, a wider callout for instance, widens its lists as well. A token defined on `:root` as `var(--max-width-paragraph)` would be resolved once, at the root, and miss that change. Set the hook to give lists a measure of their own:
+
+```css
+/* Lists of the docs wrap a little earlier than the paragraphs */
+.docs {
+  --list-item-max-width: 60ch;
+}
+
+/* No cap on lists in this scope */
+.wide {
+  --list-item-max-width: none;
+}
+```
+
 ## Overriding the tokens
 
-The five tokens come from [@uncinq/component-tokens](../../../component-tokens/reference/): the two indents, the two nested margins, and `--list-item-gap`, the item spacing the [labelled list](../../../css-components/content/list/) reads as well, so both kinds of list keep the same rhythm. Each `var()` carries a fallback for a token package that predates them: the default value for the indents, the semantic spacing token for the margins. The two marker hooks are not tokens, see [Markers](#markers).
+The five tokens come from [@uncinq/component-tokens](../../../component-tokens/reference/): the two indents, the two nested margins, and `--list-item-gap`, the item spacing the [labelled list](../../../css-components/content/list/) reads as well, so both kinds of list keep the same rhythm. Each `var()` carries a fallback for a token package that predates them: the default value for the indents, the semantic spacing token for the margins. The two marker hooks are not tokens, see [Markers](#markers), and neither is the [measure hook](#items-share-the-paragraph-measure).
 
 They inherit like any custom property, so the element you set them on is the scope they change, nested lists included. That makes them the tool for resizing every list in a scope; to change one list alone, set the property on it:
 
@@ -118,7 +151,7 @@ That is the point of the file. `:where()` contributes **zero specificity**, so a
 
 One class beats the base rule. Without `:where()`, `.nav` and `ul` would have different specificities and the reset would need `!important` or a longer selector.
 
-This is why the file makes no attempt to exclude navigation lists itself. It does not need to: a UI list is a list that has been given a class, and the class always wins.
+This is why the file makes no attempt to exclude navigation lists itself. It does not need to: a UI list is a list that has been given a class, and the class always wins. The [measure](#items-share-the-paragraph-measure) is the one exception, because a class only wins on the properties it sets.
 
 Removing the markers has an accessibility cost in Safari. WebKit treats a list without visible markers as a layout list, and VoiceOver on iOS then reads its items without announcing a list or its length. Where that information matters, a list of results or of cards for instance, add `role="list"` to the element: it looks redundant, and validators flag it, but it is the documented way to keep the role.
 

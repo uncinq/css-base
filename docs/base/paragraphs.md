@@ -18,7 +18,7 @@ p {
 | Token | Role |
 | --- | --- |
 | `--spacing-typography` | The rhythm between blocks. [Blockquotes](../blockquote/) and [nested lists](../list/) read the same token, so prose keeps one spacing unit |
-| `--max-width-paragraph` | The measure cap, in `ch` or `rem`, so a paragraph wraps before it becomes hard to read |
+| `--max-width-paragraph` | The measure cap, in `ch` or `rem`, so a paragraph wraps before it becomes hard to read. Items of a list without a class read it too, see [the list measure](../list/#items-share-the-paragraph-measure) |
 
 ## The measure cap is opt-out, not opt-in
 

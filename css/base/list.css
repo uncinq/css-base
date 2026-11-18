@@ -11,6 +11,14 @@
  *
  * The marker types are optional hooks: unset, revert-layer hands them back to
  * the user agent, which keeps its disc, circle, square progression.
+ *
+ * Items of a list without a class share the paragraph measure, so a tight
+ * list wraps where a loose one already does through its li > p. A list with
+ * a class is a UI list and keeps full-width items: a class overrides only
+ * the properties it sets, and a card or menu would never reset max-width.
+ * --list-item-max-width is a hook, not a token: unset, the fallback is
+ * resolved on each item, so a scope that changes --max-width-paragraph
+ * changes its lists too.
  */
 @layer base {
   :where(ul) {
@@ -30,5 +38,9 @@
 
   :where(li) {
     margin-block: var(--list-item-gap, var(--spacing-2xs));
+  }
+
+  :where(:is(ul, ol):not([class]) > li) {
+    max-width: var(--list-item-max-width, var(--max-width-paragraph));
   }
 }
